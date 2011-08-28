@@ -53,9 +53,38 @@
 ;;-------------------------------------------------------------------------
 ;; elispとconfディレクトリをサブディレクトリごと load-path に追加
 ;;-------------------------------------------------------------------------
-(add-to-load-path "elisp" "conf")
+(add-to-load-path "elisp" "conf" "elisp/apel" "elisp/emu")
 
 ;;-------------------------------------------------------------------------
+;; wdired
+;;-------------------------------------------------------------------------
+(require 'wdired)
+(define-key dired-mode-map "r"
+  'wdired-change-to-wdired-mode)
+
+;;-------------------------------------------------------------------------
+;; auto-complete
+;; (http://cx4a.org/software/auto-complete/index.ja.html)
+;;-------------------------------------------------------------------------
+(when (require 'auto-complete-config nil t)
+  (add-to-list 'ac-dictionary-directories
+    "~/.emacs.d/elisp/ac-dict")
+  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+  (ac-config-default))
+
+;;-------------------------------------------------------------------------
+;; Elscreen
+;; (http://www.morishima.net/~naoto/software/elscreen/index.php.ja)
+;;-------------------------------------------------------------------------
+(when (require 'elscreen nil t)
+  (if window-system
+      (define-key elscreen-map (kbd "C-z")
+        'iconify-or-deiconify-frame)
+    (define-key elscreen-map (kbd "C-z")
+      'suspend-emacs)))
+
+;;-------------------------------------------------------------------------
+;; auto-install
 ;; (install-elisp "http://www.emacswiki.org/emacs/download/auto-install.el")
 ;;-------------------------------------------------------------------------
 (when (require 'auto-install nil t)
@@ -69,12 +98,43 @@
   (auto-install-compatibility-setup))
 
 ;;-------------------------------------------------------------------------
-;; Redo (install-elisp "http://www.emacswiki.org/emacs/download/redo+.el")
+;; smartchr
+;; (install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
+;;-------------------------------------------------------------------------
+(when (require 'smartchr nil t)
+  (define-key global-map
+    (kbd "=") (smartchr '("=" " = " " == " " === "))))
+
+;;-------------------------------------------------------------------------
+;; Redo 
+;; (install-elisp "http://www.emacswiki.org/emacs/download/redo+.el")
 ;;-------------------------------------------------------------------------
 (when (require 'redo+ nil t)
   ;; global-map
   (global-set-key (kbd "C-'") 'redo)) ;C-' にredoを割り当てる
 (put 'upcase-region 'disabled nil)
+
+;;-------------------------------------------------------------------------
+;; undohist 
+;; (install-elisp "http://cx4a.org/pub/undolist.el")
+;;-------------------------------------------------------------------------
+(when (require 'undolist nil t)
+  (undolist-initialize))
+
+;;-------------------------------------------------------------------------
+;; undo-tree
+;; (install-elisp "http://www.dr-qubit.org/undo-tree/undo-tree.el")
+;;-------------------------------------------------------------------------
+(when (require 'undo-tree nil t)
+  (global-undo-tree-mode))
+
+;;-------------------------------------------------------------------------
+;; point-undo
+;; (install-elisp "http://www.emacswiki.org/cgi-bin/wiki/download/point-undo.el")
+;;-------------------------------------------------------------------------
+(when (require 'point-undo nil t)
+  (define-key global-map [f5] 'point-undo)
+  (define-key global-map [f6] 'point-redo))
 
 ;;-------------------------------------------------------------------------
 ;; color-moccur, moccur-edit
@@ -117,10 +177,6 @@
 ;; cmigemoで必須の設定
 (setq migemo-user-dictionary nil)
 (setq migemo-regex-dictionary nil)
-;; キャッシュの設定
-(setq migemo-use-pattern-alist t)
-(setq migemo-use-frequent-pattern-alist t)
-(setq migemo-pattern-alist-length 1000)
 (setq migemo-coding-system 'utf-8-unix)
 ;; Migemo起動
 (load-library "migemo")
