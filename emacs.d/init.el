@@ -398,3 +398,11 @@
 ;; 警告のフェイス
 ;;(set-face-background 'flymake-warnline "yellow")
 ;;(set-face-foreground 'flymake-warnline "black")
+
+;;-------------------------------------------------------------------------
+;; coffee-mode 
+;;-------------------------------------------------------------------------   
+(add-to-list 'load-path "~/.emacs.d/coffee-mode")
+(require 'coffee-mode)
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
