@@ -1,8 +1,26 @@
 ;;-------------------------------------------------------------------------
+;; load-path を追加する関数を定義
+;;-------------------------------------------------------------------------
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+        (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+            (normal-top-level-add-subdirs-to-load-path))))))
+
+;;-------------------------------------------------------------------------
+;; elispとconfディレクトリをサブディレクトリごと load-path に追加
+;;-------------------------------------------------------------------------
+(add-to-load-path "elisp" "conf" "elisp/apel" "elisp/emu" "elisp/color-theme-6.6.0")
+
+;;-------------------------------------------------------------------------
 ;; カラーテーマ
 ;;-------------------------------------------------------------------------
 (when (require 'color-theme nil t)
   (color-theme-initialize))
+(load "color-theme")
+(color-theme-clarity)
 
 ;;-------------------------------------------------------------------------
 ;; 表示回り
@@ -23,23 +41,18 @@
 (set-face-underline-p 'show-paren-match-face "yellow")
 ;; 行番号
 (global-linum-mode)
+;; 透過設定
+(modify-frame-parameters nil (list (cons 'alpha 85)))
+(defun modify-frame-alpha (arg)
+    (interactive "Nalpha parameter: ")
+    (modify-frame-parameters nil (list (cons 'alpha arg))))
+
 
 ;;-------------------------------------------------------------------------
 ;; インデント
 ;;-------------------------------------------------------------------------
 (setq js-indent-level 4)
 ;;(setq-default indent-tabs-mode nil)
-
-;;-------------------------------------------------------------------------
-;; load-path を追加する関数を定義
-;;-------------------------------------------------------------------------
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-        (add-to-list 'load-path default-directory)
-        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-            (normal-top-level-add-subdirs-to-load-path))))))
 
 ;;-------------------------------------------------------------------------
 ;; Mac環境設定
@@ -49,11 +62,6 @@
 (prefer-coding-system 'utf-8-hfs)
 (setq file-name-coding-system 'utf-8-hfs)
 (setq locale-coding-system 'utf-8-hfs)
-
-;;-------------------------------------------------------------------------
-;; elispとconfディレクトリをサブディレクトリごと load-path に追加
-;;-------------------------------------------------------------------------
-(add-to-load-path "elisp" "conf" "elisp/apel" "elisp/emu")
 
 ;;-------------------------------------------------------------------------
 ;; wdired
@@ -133,8 +141,8 @@
 ;; (install-elisp "http://www.emacswiki.org/cgi-bin/wiki/download/point-undo.el")
 ;;-------------------------------------------------------------------------
 (when (require 'point-undo nil t)
-  (define-key global-map [f5] 'point-undo)
-  (define-key global-map [f6] 'point-redo))
+  (define-key global-map [f6] 'point-undo)
+  (define-key global-map [f7] 'point-redo))
 
 ;;-------------------------------------------------------------------------
 ;; color-moccur, moccur-edit
@@ -181,6 +189,20 @@
 ;; Migemo起動
 (load-library "migemo")
 (migemo-init)
+
+;;-------------------------------------------------------------------------
+;; egg (Emacs Got Git)
+;; (http://github.com/byplayer/egg/raw/master/egg.el) 
+;;-------------------------------------------------------------------------
+(when (executable-find "git")
+  (require 'egg nil t))
+
+;;-------------------------------------------------------------------------
+;; multi-term
+;; (http://www.emacswiki.org/emacs/download/multi-term.el) 
+;;-------------------------------------------------------------------------
+(when (require 'multi-term nil t)
+  (setq multi-term-program "/bin/zsh"))
 
 ;;-------------------------------------------------------------------------
 ;; カーソル移動加速 
@@ -263,3 +285,116 @@
     (setq scroll-step-default 1)
     (setq scroll-step-count 1)
     ad-do-it))
+
+;;-------------------------------------------------------------------------
+;; Anything 
+;; (auto-install-batch 'anything')
+;;-------------------------------------------------------------------------
+(when (require 'anything nil t)
+  (setq
+    ;; 候補を表示するまでの時間 デフォルト0.5
+    anything-idle-delay 0.3
+    ;; タイプして再描画するまでの時間 デフォルト0.1
+    anything-input-idle-delay 0.2
+    ;; 候補の最大表示数 デフォルト50
+    anything-candidate-number-limit 100
+    ;; 候補が多い時に体感速度を早くする
+    anything-quick-update t
+    ;; 候補選択ショートカットをアルファベットに
+    anything-enable-shortcuts 'alphabet)
+
+  (when (require 'anything-config nil t)
+    ;; root権限でアクションを実行する時のコマンド デフォルトsu
+    (setq anything-su-or-sudo "sudo"))
+
+  (require 'anything-match-plugin nil t)
+  (and (equal current-language-environment "Japanese")
+       (executable-find "cmigemo")
+       (require 'anything-migemo nil t))
+  (when (require 'anything-complete nil t)
+    ;; M-x による補完をAnythingで行う
+    ;; (anything-read-string-mode 1)
+    ;; lispシンボルの補完候補の再検索時間
+    (anything-lisp-complete-symbol-set-timer 150))
+
+  (require 'anything-show-completion nil t)
+
+  (when (require 'descbinds-anything nil t)
+    ;; describe-bindingsをAnythingに置き換える
+    (descbinds-anything-install))
+
+  (require 'anything-grep nil t))
+
+;; anything-for-document (man & info search)
+(setq anything-for-document-sources
+  (list
+   anything-c-source-man-pages
+   anything-c-source-info-cl
+   anything-c-source-info-pages
+   anything-c-source-info-elisp
+   anything-c-source-apropos-emacs-commands
+   anything-c-source-apropos-emacs-functions
+   anything-c-source-apropos-emacs-variables))
+
+(defun anything-for-document ()
+  "Preconfigured `anything' for anything-for-document."
+  (interactive)
+  (anything anything-for-document-sources
+    (thing-at-point 'symbol) nil nil nil
+    "*anything for document*"))
+(define-key global-map (kbd "s-d") 'anything-for-document)
+
+;;-------------------------------------------------------------------------
+;; flymake-jsl 
+;;-------------------------------------------------------------------------
+(defun js-mode-hooks ()
+  ;; キーマップをセット
+  (setq flymake-jsl-mode-map 'js-mode-map)
+  ;; flymake-jslを起動するための設定
+  (when (require 'flymake-jsl nil t)
+  (setq flymake-check-was-interrupted t)
+  (flymake-mode t)))
+;; js-modeの起動時にhookを追加
+(add-hook 'js-mode-hook 'js-mode-hooks)
+
+;;-------------------------------------------------------------------------
+;; Aspell 
+;;------------------------------------------------------------------------- 
+;;; ispellをより高機能なaspellに置き換える  
+(setq-default ispell-program-name "aspell")
+;;; 日本語ファイル中のスペルチェックを可能にする
+(eval-after-load "ispell"
+  '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
+
+;;-------------------------------------------------------------------------
+;; Flyspell 
+;;-------------------------------------------------------------------------   
+;; FlySpellの逐次スペルチェックを使用するモードの指定  
+(defun my-flyspell-mode-enable ()  
+  (flyspell-mode 1))  
+(mapc  
+ (lambda (hook)  
+   (add-hook hook 'my-flyspell-mode-enable))  
+ '(  
+   changelog-mode-hook  
+   text-mode-hook  
+   latex-mode-hook  
+   )  
+ )  
+;; Flyspellの逐次スペルチェックをコメントにのみ使用するモード  
+;; (コメントかどうかの判断は各モードによる)  
+(mapc  
+ (lambda (hook)  
+   (add-hook hook 'flyspell-prog-mode))  
+ '(  
+   c-mode-common-hook  
+   emacs-lisp-mode-hook  
+   )  
+ )
+
+;; エラーのフェイス
+;;(set-face-background 'flymake-errline "orange red")
+;;(set-face-foreground 'flymake-errline "black")
+;; 警告のフェイス
+;;(set-face-background 'flymake-warnline "yellow")
+;;(set-face-foreground 'flymake-warnline "black")
