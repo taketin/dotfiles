@@ -1,4 +1,32 @@
 auto-save-list/
 apel/
 emu/
+.vim_mru_files
+.vimfuzzyfinder
+*.o
+*.lo
+*.la
+#*#
+.*.rej
+*.rej
+.*~
+*~
+.#*
+.DS_Store
+*.sw[po]
+tags
+*.html.php
+*.svn/
+.zsh/cdd_pwd_list*
+.zsh/local.zshenv
+.vim/bundle/*
+.vimperator/info/default/local-marks
+.vimperator/info/default/macros
+
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/default.*
+!**.xcodeproj/default.*
+build/
 
