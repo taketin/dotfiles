@@ -1,29 +1,41 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
 ## Environment variable configuration
 ##
 ## LANG
 ##
 export LANG=ja_JP.UTF-8
 
+## Pronpt Theme
+export ZSH_THEME="robbyrussell"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# plugins=(git)
+# source $ZSH/oh-my-zsh.sh
+
+#
 ## Default shell configuration
 ##
 ## set prompt
 ##
-case ${UID} in
-0)
-    PROMPT="%B%{[31m%}%/#%{[m%}%b "
-    PROMPT2="%B%{[31m%}%_#%{[m%}%b "
-    SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-*)
-    PROMPT="%{[31m%}%/%%%{[m%} "
-    PROMPT2="%{[31m%}%_%%%{[m%} "
-    SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-esac
+#case ${UID} in
+#0)
+#   PROMPT="%B%{[31m%}%/#%{[m%}%b "
+#  PROMPT2="%B%{[31m%}%_#%{[m%}%b "
+#   SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
+#  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#       PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#  ;;
+#  *)
+#   PROMPT="%{[31m%}%/%%%{[m%} "
+#  PROMPT2="%{[31m%}%_%%%{[m%} "
+# SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
+#  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#     PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#;;
+# esac
 
 # auto change directory
 #
