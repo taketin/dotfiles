@@ -13,7 +13,7 @@ export ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git)
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 #
 ## Default shell configuration
@@ -36,6 +36,7 @@ export ZSH_THEME="robbyrussell"
 #     PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
 #;;
 # esac
+
 
 # auto change directory
 #
@@ -72,6 +73,13 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
+## incremental-pattern-search
+#
+bindkey '^p' history-beginning-search-backward
+bindkey '^n' history-beginning-search-forward
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
+
 ## Command history configuration
 #
 HISTFILE=~/.zsh_history
@@ -84,6 +92,16 @@ setopt share_history        # share command history data
 #
 autoload -U compinit
 compinit
+
+# cdd
+#
+# @see http://d.hatena.ne.jp/secondlife/20080218/1203303528
+#
+source ~/.zsh/cdd
+
+function chpwd() {
+    _reg_pwd_screennum
+}
 
 # set terminal title including current directory
 #
