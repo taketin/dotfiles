@@ -37,6 +37,13 @@ source $ZSH/oh-my-zsh.sh
 #;;
 # esac
 
+# alias setting
+alias ls='ls -GwF'
+alias diff=colordiff
+
+# color setting
+export GREP_COLOR='07;37;40'
+export GREP_OPTIONS='--color=auto'
 
 # auto change directory
 #
@@ -112,3 +119,15 @@ kterm*|xterm)
 	}
 	;;
 esac
+
+# pythonbrew setting
+
+# pythonbrew
+if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
+    source "$HOME/.pythonbrew/etc/bashrc"
+    # exec command like virtualenvwrapper
+    alias mkvirtualenv="pythonbrew venv create"
+    alias rmvirtualenv="pythonbrew venv delete"
+    alias workon="pythonbrew venv use"
+fi
+
