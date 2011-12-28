@@ -102,6 +102,48 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 
+"----------------------------------------
+" create directory automatically
+"----------------------------------------
+augroup vimrc-auto-mkdir
+    autocmd!
+    autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+    function! s:auto_mkdir(dir, force)
+        if !isdirectory(a:dir) && (a:force ||
+            \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+            call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+        endif
+    endfunction
+augroup END
+
+
+"---------------------------------------
+" Plugin Setting Managed by Vundle
+"---------------------------------------
+filetype off
+
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+" Python
+Bundle "git://github.com/lambdalisue/vim-python-virtualenv.git"
+" NerdTree
+Bundle "git://github.com/scrooloose/nerdtree.git"
+" pyflakes
+Bundle "mitechie/pyflakes-pathogen"
+
+" 引数無しで vim を開いたら NERDTree 起動
+let file_name = expand("%")
+if has('vim_starting') &&  file_name == ""
+    autocmd VimEnter * NERDTree ./
+endif
+
+" NERDTree {{{
+    nnoremap <Space>tr :<C-u>NERDTreeToggle<Enter>
+    let NERDTreeShowHidden = 1
+" }}}
+
+
 ""
 " FILETYPE
 "-------------------------------------------------------------------------
