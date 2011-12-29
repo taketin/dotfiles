@@ -103,9 +103,9 @@ set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
 " Python
-Bundle "git://github.com/lambdalisue/vim-python-virtualenv.git"
+Bundle "lambdalisue/vim-python-virtualenv"
 " NerdTree
-Bundle "git://github.com/scrooloose/nerdtree.git"
+Bundle "scrooloose/nerdtree"
 " pyflakes
 Bundle "mitechie/pyflakes-pathogen"
 
@@ -142,7 +142,6 @@ filetype plugin indent on
 " gui       Gvimのフォントフォーマット
 " term      コンソールのフォントフォーマット（太字など）
 
-colorscheme desert
 if has('gui_macvim')
     winpos 70 70                   " ウィンドウの左上隅の位置をピクセル単位で指定で表示
     set columns=180                " window横
@@ -152,7 +151,7 @@ set autoindent                 " インデント
 set backspace=indent,eol,start " BSでなんでも消せるように
 set cmdheight=2                " コマンドラインの高さ(GUI使用時)
 "set cursorline                 " カーソル行を強調表示
-set t_Co=256				   " カーソルライン用色設定
+set t_Co=256                   " カーソルライン用色設定
 hi CursorLine   term=reverse cterm=none ctermbg=242 " カーソルライン反転
 set display=lastline
 set expandtab                  " タブ入力がスペースに変換 :retab でタブ・スペースの変換
@@ -274,12 +273,12 @@ autocmd FileType php  :set dictionary=~/.vim/dict/php.dict
 ""
 " Python
 " -------------------------------------------------------------------------
-filetype on
-filetype plugin on
+"filetype on
+"filetype plugin on
 autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"autocmd FileType python setl autoindent
+"autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 ""
 " pyflakes suntax-color setting
