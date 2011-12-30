@@ -102,12 +102,19 @@ filetype off
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
+Bundle 'clones/vim-l9'
+Bundle 'FuzzyFinder'
+Bundle 'Shougo/neocomplcache'
+Bundle 'thinca/vim-quickrun'
+Bundle "scrooloose/nerdtree"
+
 " Python
 Bundle "lambdalisue/vim-python-virtualenv"
-" NerdTree
-Bundle "scrooloose/nerdtree"
-" pyflakes
 Bundle "mitechie/pyflakes-pathogen"
+
+" js
+Bundle 'JavaScript-syntax'
+Bundle 'itspriddle/vim-javascript-indent'
 
 " 引数無しで vim を開いたら NERDTree 起動
 let file_name = expand("%")
