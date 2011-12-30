@@ -7,3 +7,6 @@
 [submodule ".vim/nerdtree_plugin/toritori0318_vim-nerdtree-plugin"]
 	path = .vim/nerdtree_plugin/toritori0318_vim-nerdtree-plugin
 	url = git://github.com/toritori0318/vim-nerdtree-plugin.git
+[submodule ".vim/plugin/vim-quickrun"]
+	path = .vim/plugin/vim-quickrun
+	url = https://github.com/thinca/vim-quickrun.git
