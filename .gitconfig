@@ -1,0 +1,16 @@
+[user]
+	name = taketin
+	email = tksthdnr@gmail.com
+[github]
+	user = taketin
+	token = 9c1009e39c5f14564a901bdc778af74e
+[color]
+    ui = auto
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[core]
+  excludesfile = ~/.gitignore
