@@ -78,29 +78,6 @@ if has('unix')&&has('gui_running')
   let $LANG='ja'
 endif
 
-"----------------------------------------
-"オプション設定
-"----------------------------------------
-set hidden
-set number
-set title
-set cmdheight=2
-set laststatus=2
-set showcmd
-set ruler
-set display=lastline
-set shellslash
-set ignorecase
-set smartcase
-set incsearch
-set wildmenu
-set whichwrap=b,s,[,],<,>
-set backspace=indent,eol,start
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
 
 "----------------------------------------
 " create directory automatically
@@ -125,12 +102,19 @@ filetype off
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
+Bundle 'clones/vim-l9'
+Bundle 'FuzzyFinder'
+Bundle 'Shougo/neocomplcache'
+Bundle 'thinca/vim-quickrun'
+Bundle "scrooloose/nerdtree"
+
 " Python
-Bundle "git://github.com/lambdalisue/vim-python-virtualenv.git"
-" NerdTree
-Bundle "git://github.com/scrooloose/nerdtree.git"
-" pyflakes
+Bundle "lambdalisue/vim-python-virtualenv"
 Bundle "mitechie/pyflakes-pathogen"
+
+" js
+Bundle 'JavaScript-syntax'
+Bundle 'itspriddle/vim-javascript-indent'
 
 " 引数無しで vim を開いたら NERDTree 起動
 let file_name = expand("%")
@@ -165,35 +149,49 @@ filetype plugin indent on
 " gui       Gvimのフォントフォーマット
 " term      コンソールのフォントフォーマット（太字など）
 
-colorscheme desert
 if has('gui_macvim')
     winpos 70 70                   " ウィンドウの左上隅の位置をピクセル単位で指定で表示
     set columns=180                " window横
     set lines=60                   " window縦
 endif
+set autoindent                 " インデント
+set backspace=indent,eol,start " BSでなんでも消せるように
 set cmdheight=2                " コマンドラインの高さ(GUI使用時)
-set nonumber                   " 行番号を表示しない
-set nowrap                     " 行折り返しをしない
-set listchars=tab:\ \          " タブの左側にカーソル表示
-set list
+"set cursorline                 " カーソル行を強調表示
+set t_Co=256                   " カーソルライン用色設定
+hi CursorLine   term=reverse cterm=none ctermbg=242 " カーソルライン反転
+set display=lastline
 set expandtab                  " タブ入力がスペースに変換 :retab でタブ・スペースの変換
-set tabstop=4                  " タブスペース数設定
+set formatoptions+=mM          " 整形オプションにマルチバイト系を追加
+set hlsearch                   " 検索結果文字列のハイライトを有効にする
+set ignorecase
+set incsearch
+set laststatus=2               " ステータスラインを常に表示
+set list
+set listchars=tab:\ \          " タブの左側にカーソル表示
+set lsp=3                      " 行間
+set mouse=a                    " マウスモード有効
+set mousehide                  " 入力時にマウスポインタを隠す (nomousehide:隠さない)
+set nowrap                     " 行折り返しをしない
+set nomousefocus               " マウスの移動でフォーカスを自動的に切替えない (mousefocus:切替る)
+set number                     " 行番号表示
+set ruler					   " ルーラー表示
+set shellslash
 set shiftwidth=4               " 自動的に挿入される量
-set softtabstop=0              " <Tab>キーを押した時に挿入される空白の量
 set showcmd                    " 入力中のコマンドをステータスに表示する
 set showmatch                  " 括弧入力時の対応する括弧を表示
-set hlsearch                   " 検索結果文字列のハイライトを有効にする
-set laststatus=2               " ステータスラインを常に表示
-set backspace=indent,eol,start " BSでなんでも消せるように
-set lsp=3                      " 行間
-"set number                    " 行番号を表示
-"set cursorline                " カーソル行を強調表示
-set autoindent                 " インデント
 set smartindent
-set formatoptions+=mM          " 整形オプションにマルチバイト系を追加
-set mouse=a                    " マウスモード有効
-set nomousefocus               " マウスの移動でフォーカスを自動的に切替えない (mousefocus:切替る)
-set mousehide                  " 入力時にマウスポインタを隠す (nomousehide:隠さない)
+set smartcase
+set softtabstop=0              " <Tab>キーを押した時に挿入される空白の量
+set tabstop=4                  " タブスペース数設定
+set title                      " タイトルをウィンドウ枠に表示
+set whichwrap=b,s,[,],<,>
+set wildmenu
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
 
 " 入力モード時、ステータスラインのカラーを変更
 augroup InsertHook
@@ -201,6 +199,9 @@ augroup InsertHook
     autocmd InsertEnter * highlight StatusLine ctermfg=black ctermbg=white guifg=#2E4340 guibg=#ccdc90
     autocmd InsertLeave * highlight StatusLine ctermfg=black ctermbg=lightgray guifg=black guibg=#c2bfa5
 augroup END
+
+" ステータスラインに文字コードと改行文字を表示する
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 " ノーマルモードでIME OFF
 "augroup InsModeAu
@@ -216,6 +217,7 @@ highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
 
 "set list
 "set listchars=tab:\ \ ,extends:<,trail:_
+
 "highlight SpecialKey guibg=#222222 cterm=underline ctermfg=darkgrey
 
 " 81桁目以降を強調表示
@@ -231,9 +233,6 @@ endif
 hi Pmenu ctermbg=darkgray guibg=darkgray
 hi PmenuSel ctermbg=brown ctermfg=white guibg=brown guifg=white
 hi PmenuSbar ctermbg=black guibg=black
-
-" ステータスラインに文字コードと改行文字を表示する
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 " カーソル行をハイライト（重い）
 "highlight CursorLine guibg=lightblue ctermbg=lightgray ctermfg=blue
@@ -256,77 +255,11 @@ endif
 
 
 ""
-" CHARSET
-" -------------------------------------------------------------------------
-
-"set enc=utf-8
-"set fenc=utf-8
-"set fencs=iso-2022-jp,enc-jp,cp932
-
-if &encoding !=# 'utf-8'
-    set encoding=japan
-    set fileencoding=japan
-endif
-
-if has('iconv')
-    let s:enc_euc = 'euc-jp'
-    let s:enc_jis = 'iso-2022-jp'
-    " iconvがeucJP-msに対応しているかをチェック
-    if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-        let s:enc_euc = 'eucjp-ms'
-        let s:enc_jis = 'iso-2022-jp-3'
-    " iconvがJISX0213に対応しているかをチェック
-    elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-        let s:enc_euc = 'euc-jisx0213'
-        let s:enc_jis = 'iso-2022-jp-3'
-    endif
-    " fileencodingsを構築
-    if &encoding ==# 'utf-8'
-        let s:fileencodings_default = &fileencodings
-        let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-        let &fileencodings = &fileencodings .','. s:fileencodings_default
-        unlet s:fileencodings_default
-    else
-        let &fileencodings = &fileencodings .','. s:enc_jis
-        set fileencodings+=utf-8,ucs-2le,ucs-2
-        if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-            set fileencodings+=cp932
-            set fileencodings-=euc-jp
-            set fileencodings-=euc-jisx0213
-            set fileencodings-=eucjp-ms
-            let &encoding = s:enc_euc
-            let &fileencoding = s:enc_euc
-        else
-            let &fileencodings = &fileencodings .','. s:enc_euc
-        endif
-    endif
-    " 定数を処分
-    unlet s:enc_euc
-    unlet s:enc_jis
-endif
-
-" 日本語を含まない場合は fileencoding に encoding を使うようにする
-if has('autocmd')
-    function! AU_ReCheck_FENC()
-        if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-            let &fileencoding=&encoding
-        endif
-    endfunction
-    autocmd BufReadPost * call AU_ReCheck_FENC()
-endif
-
-" 改行コードの自動認識
-set fileformats=unix,dos,mac
-
-" □とか○の文字があってもカーソル位置がずれないようにする
-if exists('&ambiwidth')
-    set ambiwidth=double
-endif
-
-
-""
 " EDIT
 " -------------------------------------------------------------------------
+
+"コメントが連続で挿入されるのを停止 
+autocmd FileType * setlocal formatoptions-=ro 
 
 "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin で発動します）
 augroup BinaryXXD
@@ -338,6 +271,38 @@ augroup BinaryXXD
     autocmd BufWritePost * if &binary | silent %!xxd -g 1
     autocmd BufWritePost * set nomod | endif
 augroup END
+
+""
+" PHP
+" -------------------------------------------------------------------------
+autocmd FileType php  :set dictionary=~/.vim/dict/php.dict
+
+""
+" Python
+" -------------------------------------------------------------------------
+"filetype on
+"filetype plugin on
+autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
+"autocmd FileType python setl autoindent
+"autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+""
+" pyflakes suntax-color setting
+" -------------------------------------------------------------------------
+if has("gui_running")
+    highlight SpellBad term=underline gui=undercurl guisp=Orange
+endif
+
+""
+" Python 実行設定 <C-P>
+" -------------------------------------------------------------------------
+function! s:ExecPy()
+    exe "!" . &ft . " %"
+:endfunction
+command! Exec call <SID>ExecPy()
+autocmd FileType python map <silent> <C-P> :call <SID>ExecPy()<CR>
+
 
 
 ""
@@ -392,6 +357,10 @@ vmap <Space>s <Leader>tsp
 smap <Space>s <Leader>tsp
 vmap <Space>a : Align
 smap <Space>a : Align
+
+"フレームサイズを怠惰に変更する
+map <kPlus> <C-W>+
+map <kMinus> <C-W>-
 
 " Taglist
 " 関数一覧

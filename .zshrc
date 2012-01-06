@@ -39,7 +39,6 @@ source $ZSH/oh-my-zsh.sh
 
 # alias setting
 alias ls='ls -GwF'
-alias diff=colordiff
 
 # color setting
 export GREP_COLOR='07;37;40'
