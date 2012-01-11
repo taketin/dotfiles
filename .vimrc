@@ -107,6 +107,8 @@ Bundle 'FuzzyFinder'
 Bundle 'Shougo/neocomplcache'
 Bundle 'thinca/vim-quickrun'
 Bundle "scrooloose/nerdtree"
+Bundle "kana/vim-fakeclip"
+Bundle "fuenor/qfixhowm"
 
 " Python
 Bundle "lambdalisue/vim-python-virtualenv"
@@ -125,6 +127,18 @@ endif
 " NERDTree {{{
     nnoremap <Space>tr :<C-u>NERDTreeToggle<Enter>
     let NERDTreeShowHidden = 1
+" }}}
+
+" QFixHowm {{{
+    " qfixappにruntimepathを通す(パスは環境に合わせてください)
+    set runtimepath+=~/.vim/bundle/qfixhowm
+    " キーマップリーダー
+    let QFixHowm_Key = 'g'
+    " howm_dirはファイルを保存したいディレクトリを設定
+    let howm_dir             = '~/howm'
+    let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
+    let howm_fileencoding    = 'utf-8'
+    let howm_fileformat      = 'unix'
 " }}}
 
 
