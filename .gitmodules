@@ -1,9 +1,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".vim/vundle.git"]
-	path = .vim/vundle.git
-	url = http://github.com/gmarik/vundle.git
 [submodule ".vim/nerdtree_plugin/toritori0318_vim-nerdtree-plugin"]
 	path = .vim/nerdtree_plugin/toritori0318_vim-nerdtree-plugin
 	url = git://github.com/toritori0318/vim-nerdtree-plugin.git
