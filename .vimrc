@@ -109,6 +109,7 @@ Bundle 'thinca/vim-quickrun'
 Bundle "scrooloose/nerdtree"
 Bundle "kana/vim-fakeclip"
 Bundle "fuenor/qfixhowm"
+Bundle "kakkyz81/evervim"
 
 " Python
 Bundle "lambdalisue/vim-python-virtualenv"
