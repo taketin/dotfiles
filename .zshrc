@@ -38,7 +38,7 @@ source $ZSH/oh-my-zsh.sh
 # esac
 
 # alias setting
-alias ls='ls -GwF'
+alias ls='ls -hal -G -w'
 
 # color setting
 export GREP_COLOR='07;37;40'
