@@ -99,25 +99,28 @@ augroup END
 "---------------------------------------
 filetype off
 
-set rtp+=~/.vim/vundle.git/
-call vundle#rc()
+set rtp+=~/.vim/neobundle.vim
+if has('vim_starting')
+    set runtimepath+=~/.vim/neobundle.vim
+    call neobundle#rc(expand('~/.vim/'))
+endif
 
-Bundle 'clones/vim-l9'
-Bundle 'FuzzyFinder'
-Bundle 'Shougo/neocomplcache'
-Bundle 'thinca/vim-quickrun'
-Bundle "scrooloose/nerdtree"
-Bundle "kana/vim-fakeclip"
-Bundle "fuenor/qfixhowm"
-Bundle "kakkyz81/evervim"
+NeoBundle 'clones/vim-l9'
+NeoBundle 'FuzzyFinder'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle "scrooloose/nerdtree"
+NeoBundle "kana/vim-fakeclip"
+NeoBundle "fuenor/qfixhowm"
+NeoBundle "kakkyz81/evervim"
 
 " Python
-Bundle "lambdalisue/vim-python-virtualenv"
-Bundle "mitechie/pyflakes-pathogen"
+NeoBundle "lambdalisue/vim-python-virtualenv"
+NeoBundle "mitechie/pyflakes-pathogen"
 
 " js
-Bundle 'JavaScript-syntax'
-Bundle 'itspriddle/vim-javascript-indent'
+NeoBundle 'JavaScript-syntax'
+NeoBundle 'itspriddle/vim-javascript-indent'
 
 " 引数無しで vim を開いたら NERDTree 起動
 let file_name = expand("%")
