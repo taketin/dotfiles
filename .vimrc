@@ -105,6 +105,7 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/'))
 endif
 
+NeoBundle "Shougo/unite.vim"
 NeoBundle 'clones/vim-l9'
 NeoBundle 'FuzzyFinder'
 NeoBundle 'Shougo/neocomplcache'
@@ -113,6 +114,18 @@ NeoBundle "scrooloose/nerdtree"
 NeoBundle "kana/vim-fakeclip"
 NeoBundle "fuenor/qfixhowm"
 NeoBundle "kakkyz81/evervim"
+NeoBundle "vim-scripts/YankRing.vim"
+NeoBundle "sjl/gundo.vim"
+
+" HTML5
+NeoBundle "othree/html5.vim"
+NeoBundle "matchit.vim"
+NeoBundle "vim-scripts/str2numchar.vim"
+
+" CSS
+NeoBundle "hail2u/vim-css3-syntax"
+NeoBundle "css.vim"
+NeoBundle "cakebaker/scss-syntax.vim"
 
 " Python
 NeoBundle "lambdalisue/vim-python-virtualenv"
@@ -367,6 +380,9 @@ nnoremap 0 :<C-u>call append(expand('.'), '')<Cr>j " 空行を挿入
 ""
 " PLUGIN
 " -------------------------------------------------------------------------
+" str2numchar.vim 設定
+vmap <silent> sn :Str2NumChar<CR> 
+vmap <silent> sh :Str2HexLiteral<CR> 
 
 " Align
 " 整形
