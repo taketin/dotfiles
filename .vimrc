@@ -118,6 +118,7 @@ NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle "sjl/gundo.vim"
 
 " HTML5
+NeoBundle "mattn/zencoding-vim"
 NeoBundle "othree/html5.vim"
 NeoBundle "matchit.vim"
 NeoBundle "vim-scripts/str2numchar.vim"
