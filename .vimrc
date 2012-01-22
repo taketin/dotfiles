@@ -106,8 +106,10 @@ if has('vim_starting')
 endif
 
 NeoBundle "Shougo/unite.vim"
-NeoBundle 'clones/vim-l9'
+NeoBundle 'vim-l9'
 NeoBundle 'FuzzyFinder'
+NeoBundle 'YankRing.vim'
+NeoBundle 'str2numchar.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle "scrooloose/nerdtree"
@@ -121,12 +123,16 @@ NeoBundle "sjl/gundo.vim"
 NeoBundle "mattn/zencoding-vim"
 NeoBundle "othree/html5.vim"
 NeoBundle "matchit.vim"
-NeoBundle "vim-scripts/str2numchar.vim"
+NeoBundle "surround.vim"
 
 " CSS
 NeoBundle "hail2u/vim-css3-syntax"
 NeoBundle "css.vim"
+NeoBundle "css_color.vim"
 NeoBundle "cakebaker/scss-syntax.vim"
+
+" SCSS
+NeoBundle "cakebaker / scss-syntax.vim"
 
 " Python
 NeoBundle "lambdalisue/vim-python-virtualenv"
