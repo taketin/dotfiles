@@ -106,7 +106,7 @@ if has('vim_starting')
 endif
 
 NeoBundle "Shougo/unite.vim"
-NeoBundle 'vim-l9'
+NeoBundle "clones/vim-l9"
 NeoBundle 'FuzzyFinder'
 NeoBundle 'YankRing.vim'
 NeoBundle 'str2numchar.vim'
@@ -187,11 +187,11 @@ filetype plugin indent on
 " gui       Gvimのフォントフォーマット
 " term      コンソールのフォントフォーマット（太字など）
 
-if has('gui_macvim')
-    winpos 70 70                   " ウィンドウの左上隅の位置をピクセル単位で指定で表示
-    set columns=180                " window横
-    set lines=60                   " window縦
-endif
+"if has('gui_macvim')
+"    winpos 70 70                   " ウィンドウの左上隅の位置をピクセル単位で指定で表示
+"    set columns=180                " window横
+"    set lines=60                   " window縦
+"endif
 set autoindent                 " インデント
 set backspace=indent,eol,start " BSでなんでも消せるように
 set cmdheight=2                " コマンドラインの高さ(GUI使用時)
@@ -276,13 +276,13 @@ hi PmenuSbar ctermbg=black guibg=black
 "highlight CursorLine guibg=lightblue ctermbg=lightgray ctermfg=blue
 
 " MAC
-if has('gui_macvim')
-    set showtabline=2         " タブを常に表示
-    set imdisable             " IMを無効化
-    set transparency=10       " 透明度
-    set antialias             " アンチエイリアス
-    set guifont=VL_Gothic:h12 " フォント
-endif
+"if has('gui_macvim')
+"    set showtabline=2         " タブを常に表示
+"    set imdisable             " IMを無効化
+"    set transparency=10       " 透明度
+"    set antialias             " アンチエイリアス
+"    set guifont=VL_Gothic:h12 " フォント
+"endif
 
 " WINDOWS
 if has('win32')
