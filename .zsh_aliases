@@ -1,11 +1,16 @@
-#vim
+# vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
 
-#command
+# ctags
+if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then
+    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+fi
+
+# command
 alias ls='ls -hal -G -w'
 
-#Python
+# Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
     source "$HOME/.pythonbrew/etc/bashrc"
     # exec command like virtualenvwrapper
