@@ -118,6 +118,7 @@ NeoBundle "fuenor/qfixhowm"
 NeoBundle "kakkyz81/evervim"
 NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle "sjl/gundo.vim"
+NeoBundle "tomtom/tcomment_vim"
 
 " HTML5
 NeoBundle "mattn/zencoding-vim"
@@ -269,8 +270,8 @@ endif
 " 入力モード時、ステータスラインのカラーを変更
 augroup InsertHook
     autocmd!
-    autocmd InsertEnter * highlight StatusLine ctermfg=black ctermbg=white guifg=#2E4340 guibg=#ccdc90
-    autocmd InsertLeave * highlight StatusLine ctermfg=black ctermbg=lightgray guifg=black guibg=#c2bfa5
+    autocmd InsertEnter * highlight StatusLine ctermfg=Blue ctermbg=LightYellow guifg=#2E4340 guibg=#ccdc90
+    autocmd InsertLeave * highlight StatusLine ctermfg=black ctermbg=LightGrey guifg=black guibg=#c2bfa5
 augroup END
 
 " ステータスラインに文字コードと改行文字を表示する
