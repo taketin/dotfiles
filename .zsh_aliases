@@ -7,6 +7,11 @@ if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 fi
 
+# git
+if [ -f /usr/local/bin/git ]; then
+    alias git='/usr/local/bin/git'
+fi
+
 # command
 alias ls='ls -hal -G -w'
 
