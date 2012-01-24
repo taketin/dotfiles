@@ -109,7 +109,6 @@ NeoBundle "Shougo/unite.vim"
 NeoBundle "clones/vim-l9"
 NeoBundle 'FuzzyFinder'
 NeoBundle 'YankRing.vim'
-NeoBundle 'str2numchar.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle "scrooloose/nerdtree"
@@ -119,12 +118,14 @@ NeoBundle "kakkyz81/evervim"
 NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
+NeoBundle "camelcasemotion"
 
 " HTML5
 NeoBundle "mattn/zencoding-vim"
 NeoBundle "othree/html5.vim"
 NeoBundle "matchit.vim"
 NeoBundle "surround.vim"
+NeoBundle 'str2numchar.vim'
 
 " CSS
 NeoBundle "hail2u/vim-css3-syntax"
