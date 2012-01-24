@@ -114,7 +114,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle "scrooloose/nerdtree"
 NeoBundle "kana/vim-fakeclip"
 NeoBundle "fuenor/qfixhowm"
-NeoBundle "kakkyz81/evervim"
+"NeoBundle "kakkyz81/evervim"
 NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
