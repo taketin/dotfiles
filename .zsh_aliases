@@ -1,0 +1,16 @@
+#vim
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
+
+#command
+alias ls='ls -hal -G -w'
+
+#Python
+if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
+    source "$HOME/.pythonbrew/etc/bashrc"
+    # exec command like virtualenvwrapper
+    alias mkvirtualenv="pythonbrew venv create"
+    alias rmvirtualenv="pythonbrew venv delete"
+    alias workon="pythonbrew venv use"
+fi
+

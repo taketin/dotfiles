@@ -15,6 +15,11 @@ export ZSH_THEME="robbyrussell"
 # plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# import alias setting
+if [ -f $HOME/.zsh_aliases ]; then
+    . $HOME/.zsh_aliases
+fi
+
 #
 ## Default shell configuration
 ##
@@ -36,12 +41,6 @@ source $ZSH/oh-my-zsh.sh
 #     PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
 #;;
 # esac
-
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
-
-# alias setting
-alias ls='ls -hal -G -w'
 
 # color setting
 export GREP_COLOR='07;37;40'
@@ -121,15 +120,3 @@ kterm*|xterm)
 	}
 	;;
 esac
-
-# pythonbrew setting
-
-# pythonbrew
-if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
-    source "$HOME/.pythonbrew/etc/bashrc"
-    # exec command like virtualenvwrapper
-    alias mkvirtualenv="pythonbrew venv create"
-    alias rmvirtualenv="pythonbrew venv delete"
-    alias workon="pythonbrew venv use"
-fi
-
