@@ -117,6 +117,7 @@ endif
 NeoBundle "Shougo/neobundle"
 NeoBundle "Shougo/unite.vim"
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
 NeoBundle 'thinca/vim-quickrun'
