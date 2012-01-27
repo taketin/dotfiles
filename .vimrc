@@ -155,7 +155,7 @@ endif
 
 " QFixHowm {{{
     " qfixappにruntimepathを通す(パスは環境に合わせてください)
-    set runtimepath+=~/.vim/bundle/qfixhowm
+    set runtimepath+=~/.vim/qfixhowm/
     " キーマップリーダー
     let QFixHowm_Key = 'g'
     " howm_dirはファイルを保存したいディレクトリを設定
