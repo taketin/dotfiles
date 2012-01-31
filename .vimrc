@@ -127,6 +127,7 @@ NeoBundle "fuenor/qfixhowm"
 NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
+NeoBundle "scrooloose/syntastic"
 " NeoBundle "kakkyz81/evervim"
 
 " vim online
@@ -142,6 +143,7 @@ NeoBundle "surround.vim"
 NeoBundle 'str2numchar.vim'
 
 " CSS
+" NeoBundle "vim-scripts/css.vim"
 NeoBundle "hail2u/vim-css3-syntax"
 " NeoBundle "css_color.vim"
 
@@ -165,6 +167,13 @@ NeoBundle 'itspriddle/vim-javascript-indent'
 	
     nnoremap <Space>tr :<C-u>NERDTreeToggle<Enter>
     let NERDTreeShowHidden = 1
+" }}}
+
+" syntastic {{{
+    let g:syntastic_enable_signs=1
+    let g:syntastic_auto_loc_list=2
+    let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'passive_filetypes': ['css'] }
 " }}}
 
 " QFixHowm {{{
@@ -328,7 +337,6 @@ augroup BinaryXXD
     autocmd BufWritePost * if &binary | silent %!xxd -g 1
     autocmd BufWritePost * set nomod | endif
 augroup END
-
 
 "-----------------------------------------------------
 "  PHP
