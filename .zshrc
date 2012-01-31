@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Path to node_modules
+export PATH=$PATH:/usr/local/share/npm/bin
+export NODE_PATH=/usr/local/lib/node
+
 ## Environment variable configuration
 ##
 ## LANG
