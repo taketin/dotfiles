@@ -1,4 +1,15 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" taketin's .vimrc                                   "
+"            _                                       "
+"  _   __   (_)  ____ ___     _____   _____          "
+" | | / /  / /  / __ `__ \   / ___/  / ___/          "
+" | |/ /  / /  / / / / / /  / /     / /__            "
+" |___/  /_/  /_/ /_/ /_/  /_/      \___/            "
+"                                                    "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set nocompatible
+let plugin_cmdex_disable = 1
 
 "-----------------------------------------------------
 " 文字コードの自動認識
@@ -16,6 +27,7 @@ if has('iconv')
   " iconvがeucJP-msに対応しているかをチェック
   if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
     let s:enc_euc = 'eucjp-ms'
+    A
     let s:enc_jis = 'iso-2022-jp-3'
   " iconvがJISX0213に対応しているかをチェック
   elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
@@ -385,7 +397,7 @@ nnoremap <Space>h :<C-u>tabp<Enter>
 nnoremap <Space>l :<C-u>tabn<Enter>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<Enter>
 nnoremap 0 :<C-u>call append(expand('.'), '')<Cr>j " 空行を挿入
-
+noremap <C-o> :!open -a "Google Chrome" %<CR>   " 現在開いているファイルを Chrome で開く
 
 " Align 整形
 let g:Align_xstrlen = 3

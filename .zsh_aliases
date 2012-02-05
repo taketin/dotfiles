@@ -14,6 +14,7 @@ fi
 
 # command
 alias ls='ls -hal -G -w'
+alias figlet='figlet -f slant'
 
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
@@ -24,3 +25,5 @@ if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
     alias workon="pythonbrew venv use"
 fi
 
+# nocorrect
+alias cap='nocorrect cap'
