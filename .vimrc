@@ -140,6 +140,7 @@ NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "scrooloose/syntastic"
+NeoBundle "Lokaltog/vim-powerline"
 " NeoBundle "kakkyz81/evervim"
 
 " vim online
@@ -179,6 +180,10 @@ NeoBundle 'itspriddle/vim-javascript-indent'
 	
     nnoremap <Space>tr :<C-u>NERDTreeToggle<Enter>
     let NERDTreeShowHidden = 1
+" }}}
+
+" Powerline {{{
+    let g:Powerline_symbols = 'fancy'
 " }}}
 
 " syntastic {{{
