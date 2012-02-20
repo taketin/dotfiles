@@ -21,7 +21,7 @@
 [alias]
     co = checkout
     ci = commit
-    pl = '!git pull && git submodule update --init'
+    pl = !git pull && git submodule update --init
     di = diff
     st = status
     br = branch
