@@ -135,3 +135,10 @@ kterm*|xterm)
 	}
 	;;
 esac
+
+# nvm setting
+if [ -f $HOME/.node ]; then
+    ~/.node/nvm.sh
+    nvm use v0.7.5
+fi
+
