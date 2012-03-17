@@ -142,3 +142,14 @@ if [ -f $HOME/.node ]; then
     nvm use v0.7.5
 fi
 
+# rbenv setting
+eval "$(rbenv init -)"
+
+# commandline to clipboard copy
+pbcopy-buffer(){ 
+    print -rn $BUFFER | pbcopy
+    zle -M "pbcopy: ${BUFFER}" 
+}
+
+zle -N pbcopy-buffer
+bindkey '^x^p' pbcopy-buffer
