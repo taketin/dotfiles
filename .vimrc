@@ -147,6 +147,7 @@ NeoBundle "Lokaltog/vim-powerline"
 NeoBundle 'FuzzyFinder'
 NeoBundle 'YankRing.vim'
 NeoBundle "camelcasemotion"
+NeoBundle "ref.vim"
 
 " HTML5
 NeoBundle "mattn/zencoding-vim"
@@ -163,6 +164,9 @@ NeoBundle "hail2u/vim-css3-syntax"
 " SCSS
 NeoBundle "cakebaker/scss-syntax.vim"
 
+" Ruby
+NeoBundle "rails.vim"
+
 " Python
 NeoBundle "lambdalisue/vim-python-virtualenv"
 NeoBundle "mitechie/pyflakes-pathogen"
@@ -170,6 +174,15 @@ NeoBundle "mitechie/pyflakes-pathogen"
 " js
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'itspriddle/vim-javascript-indent'
+
+" Color Scheme
+NeoBundle "altercation/vim-colors-solarized"
+
+" vim-colors-solarized {{{
+    syntax enable
+    set background=dark
+    colorscheme solarized
+" }}}
 
 " NERDTree {{{
 	" 引数無しで vim を開いたら NERDTree 起動
