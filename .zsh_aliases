@@ -13,7 +13,8 @@ if [ -f /usr/local/bin/git ]; then
 fi
 
 # command
-alias ls='ls -hal -G -w'
+alias l='ls -hal -G -w'
+alias dir='ls -al | grep ^d'
 alias figlet='figlet -f slant'
 
 # Python
