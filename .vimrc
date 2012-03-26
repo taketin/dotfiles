@@ -179,9 +179,9 @@ NeoBundle 'itspriddle/vim-javascript-indent'
 NeoBundle "altercation/vim-colors-solarized"
 
 " vim-colors-solarized {{{
-    syntax enable
-    set background=dark
-    colorscheme solarized
+    " syntax enable
+    " set background=dark
+    " colorscheme solarized
 " }}}
 
 " NERDTree {{{
