@@ -25,10 +25,15 @@ export LANG=ja_JP.UTF-8
 ## Pronpt Theme
 export ZSH_THEME="robbyrussell"
 
+
+## Editor
+export EDITOR='vim'
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git)
 source $ZSH/oh-my-zsh.sh
+
 
 # import alias setting
 if [ -f $HOME/.zsh_aliases ]; then
@@ -153,3 +158,6 @@ pbcopy-buffer(){
 
 zle -N pbcopy-buffer
 bindkey '^x^p' pbcopy-buffer
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
