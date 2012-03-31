@@ -141,6 +141,8 @@ NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "Lokaltog/vim-powerline"
+NeoBundle "mattn/gist-vim"
+NeoBundle "mattn/webapi-vim"
 " NeoBundle "kakkyz81/evervim"
 
 " vim online
