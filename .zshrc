@@ -159,5 +159,10 @@ pbcopy-buffer(){
 zle -N pbcopy-buffer
 bindkey '^x^p' pbcopy-buffer
 
+# autojump
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
+fi
+
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
