@@ -13,7 +13,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Export Path
-export PATH=$PATH:/Applications/MacVim.app/Contents/MacOS/:/usr/local/share/npm/bin:$HOME/node_modules/.bin
+export PATH=$PATH:/usr/local/bin:/Applications/MacVim.app/Contents/MacOS/:/usr/local/share/npm/bin:$HOME/node_modules/.bin
 export NODE_PATH=/usr/local/lib/node
 
 ## Environment variable configuration
