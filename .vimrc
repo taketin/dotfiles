@@ -132,7 +132,8 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
-NeoBundle 'thinca/vim-quickrun'
+NeoBundle "thinca/vim-quickrun"
+NeoBundle "thinca/vim-qfreplace"
 NeoBundle "scrooloose/nerdtree"
 NeoBundle "kana/vim-fakeclip"
 NeoBundle "fuenor/qfixhowm"
@@ -361,6 +362,7 @@ set ignorecase  			 " 検索文字列が小文字の場合は大文字小文字�
 set smartcase  				 " 検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan   				 " 検索時に最後まで行ったら最初に戻る
 set noincsearch				 " 検索文字列入力時に順次対象文字列にヒットさせない
+set grepprg=ack\ -a
 
 
 "-----------------------------------------------------
