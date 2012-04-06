@@ -13,7 +13,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Export Path
-export PATH=$PATH:/usr/local/bin:/Applications/MacVim.app/Contents/MacOS/:/usr/local/share/npm/bin:$HOME/node_modules/.bin
+export PATH=$PATH:/usr/local/bin:$HOME/bin:/Applications/MacVim.app/Contents/MacOS/:/usr/local/share/npm/bin:$HOME/node_modules/.bin
 export NODE_PATH=/usr/local/lib/node
 
 ## Environment variable configuration
@@ -140,6 +140,12 @@ kterm*|xterm)
 	}
 	;;
 esac
+
+# nodebrew setting
+if [[ -f ~/.nodebrew/nodebrew ]]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+    nodebrew use v0.7.7
+fi
 
 # nvm setting
 if [ -f $HOME/.node ]; then
