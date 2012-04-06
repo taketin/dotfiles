@@ -136,6 +136,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle "scrooloose/nerdtree"
 NeoBundle "kana/vim-fakeclip"
 NeoBundle "fuenor/qfixhowm"
+NeoBundle "fuenor/qfixgrep"
 NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
@@ -143,6 +144,7 @@ NeoBundle "scrooloose/syntastic"
 NeoBundle "Lokaltog/vim-powerline"
 NeoBundle "mattn/gist-vim"
 NeoBundle "mattn/webapi-vim"
+NeoBundle 'glidenote/memolist.vim'
 " NeoBundle "kakkyz81/evervim"
 
 " vim online
@@ -181,9 +183,9 @@ NeoBundle 'itspriddle/vim-javascript-indent'
 NeoBundle "altercation/vim-colors-solarized"
 
 " vim-colors-solarized {{{
-    " syntax enable
-    " set background=dark
-    " colorscheme solarized
+    syntax enable
+    set background=dark
+    colorscheme solarized
 " }}}
 
 " NERDTree {{{
@@ -268,6 +270,14 @@ NeoBundle "altercation/vim-colors-solarized"
 " str2numchar.vim {{{
 	vmap <silent> sn :Str2NumChar<CR> 
 	vmap <silent> sh :Str2HexLiteral<CR> 
+" }}}
+
+" memolist {{{
+    let g:memolist_qfixgrep = 1
+    let g:memolist_path = "~/Dropbox/memolist"
+    map <Leader>ml  :MemoList<CR>
+    map <Leader>mn  :MemoNew<CR>
+    map <Leader>mg  :MemoGrep<CR>
 " }}}
 
 
@@ -356,6 +366,9 @@ set noincsearch				 " 検索文字列入力時に順次対象文字列にヒッ�
 "-----------------------------------------------------
 "  編集系設定
 "-----------------------------------------------------
+"yankした文字列をクリップボードに追加
+set clipboard+=unnamed
+
 "コメントが連続で挿入されるのを停止 
 autocmd FileType * setlocal formatoptions-=ro 
 
