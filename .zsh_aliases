@@ -26,5 +26,8 @@ if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
     alias workon="pythonbrew venv use"
 fi
 
+# lgrep -r
+alias lg="find . -type d -name .svn -prune -o -type f -print | xargs lgrep -n"
+
 # nocorrect
 alias cap='nocorrect cap'
