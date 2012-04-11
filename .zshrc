@@ -14,7 +14,6 @@ ZSH=$HOME/.oh-my-zsh
 
 # Export Path
 export PATH=$PATH:/usr/local/bin:$HOME/bin:/Applications/MacVim.app/Contents/MacOS/:/usr/local/share/npm/bin:$HOME/node_modules/.bin
-export NODE_PATH=/usr/local/lib/node
 
 ## Environment variable configuration
 ##
@@ -143,6 +142,7 @@ esac
 
 # nodebrew setting
 if [[ -f ~/.nodebrew/nodebrew ]]; then
+    export NODE_PATH=/usr/local/lib/node
     export PATH=$HOME/.nodebrew/current/bin:$PATH
     nodebrew use v0.7.7
 fi
@@ -154,7 +154,10 @@ if [ -f $HOME/.node ]; then
 fi
 
 # rbenv setting
-eval "$(rbenv init -)"
+if [ -f $HOME/.rbenv ]; then
+    export PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rben:v init -)"
+fi
 
 # commandline to clipboard copy
 pbcopy-buffer(){ 
