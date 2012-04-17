@@ -27,7 +27,6 @@ if has('iconv')
   " iconvがeucJP-msに対応しているかをチェック
   if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
     let s:enc_euc = 'eucjp-ms'
-    A
     let s:enc_jis = 'iso-2022-jp-3'
   " iconvがJISX0213に対応しているかをチェック
   elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
@@ -37,8 +36,13 @@ if has('iconv')
   " fileencodingsを構築
   if &encoding ==# 'utf-8'
     let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    let &fileencodings = &fileencodings .','. s:fileencodings_default
+    if has('mac')
+        let &fileencodings = s:enc_jis .','. s:enc_euc
+        let &fileencodings = &fileencodings .','. s:fileencodings_default
+    else
+        let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+        let &fileencodings = &fileencodings .','. s:fileencodings_default
+    endif
     unlet s:fileencodings_default
   else
     let &fileencodings = &fileencodings .','. s:enc_jis
@@ -170,7 +174,7 @@ NeoBundle "hail2u/vim-css3-syntax"
 NeoBundle "cakebaker/scss-syntax.vim"
 
 " Ruby
-NeoBundle "rails.vim"
+NeoBundle "tpope/vim-rails"
 
 " Python
 NeoBundle "lambdalisue/vim-python-virtualenv"
