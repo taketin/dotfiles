@@ -154,10 +154,7 @@ if [ -f $HOME/.node ]; then
 fi
 
 # rbenv setting
-if [ -f $HOME/.rbenv ]; then
-    export PATH=$HOME/.rbenv/bin:$PATH
-    eval "$(rben:v init -)"
-fi
+eval "$(rbenv init -)"
 
 # commandline to clipboard copy
 pbcopy-buffer(){ 
