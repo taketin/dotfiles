@@ -153,10 +153,11 @@ NeoBundle 'glidenote/memolist.vim'
 " NeoBundle "kakkyz81/evervim"
 
 " vim online
-NeoBundle 'FuzzyFinder'
-NeoBundle 'YankRing.vim'
-NeoBundle "camelcasemotion"
+NeoBundle "taglist.vim"
+NeoBundle "YankRing.vim"
+NeoBundle "camelcasemotiontaglist.vim"
 NeoBundle "ref.vim"
+NeoBundle "Source-Explorer-srcexpl.vim"
 
 " HTML5
 NeoBundle "mattn/zencoding-vim"
@@ -186,6 +187,50 @@ NeoBundle 'itspriddle/vim-javascript-indent'
 
 " Color Scheme
 NeoBundle "altercation/vim-colors-solarized"
+
+" Unite {{{
+    " 入力モードで開始
+    let g:unite_enable_start_insert=1
+    " バッファ一覧
+    nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+    " ファイル一覧
+    nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+    " レジスタ一覧
+    nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+    " 最近使用したファイル一覧
+    nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+    " 常用セット
+    nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+    " 全部乗せ
+    nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+    " ウィンドウを分割して開く
+    au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+    au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+    " ウィンドウを縦に分割して開く
+    au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+    au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+    " ESCキーを2回押すと終了
+    au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+    au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" }}}
+
+" taglist {{{
+    set tags+=~/.tags
+    let Tlist_Ctags_Cmd = "/Applications/MacVim.app/Contents/MacOS/ctags"
+    let Tlist_Show_One_File = 1 " 現在編集中のソースのタグしか表示しない
+    let Tlist_Exit_OnlyWindow = 1 " taglistのウィンドーが最後のウィンドーならばVimを閉じる
+    let Tlist_Use_Right_Window = 1 " 右側でtaglistのウィンドーを表示
+    let g:tlist_php_settings = 'php;c:class;d:constant;f:function' " 表示する項目
+    map <silent> <leader>tl :TlistToggle<cr> " taglistを開くショットカットキー
+" }}}
+
+" SourceExplorer {{{
+    let g:SrcExpl_RefreshTime = 1
+    let g:SrcExpl_UpdateTags = 1
+    let g:SrcExpl_RefreshMapKey = "<Space>"
+    let g:SrcExpl_GoBackMapKey = "<C-b>"
+    nmap <F8> :SrcExplToggle<CR>
+" }}}
 
 " vim-colors-solarized {{{
     syntax enable
@@ -373,7 +418,7 @@ set grepprg=ack\ -a
 "  編集系設定
 "-----------------------------------------------------
 "yankした文字列をクリップボードに追加
-set clipboard+=unnamed
+" set clipboard+=unnamed
 
 "コメントが連続で挿入されるのを停止 
 autocmd FileType * setlocal formatoptions-=ro 
