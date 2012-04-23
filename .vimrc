@@ -216,7 +216,7 @@ NeoBundle "altercation/vim-colors-solarized"
 
 " taglist {{{
     set tags+=~/.tags
-    let Tlist_Ctags_Cmd = "/Applications/MacVim.app/Contents/MacOS/ctags"
+    let Tlist_Ctags_Cmd = "/usr/bin/ctags"
     let Tlist_Show_One_File = 1 " 現在編集中のソースのタグしか表示しない
     let Tlist_Exit_OnlyWindow = 1 " taglistのウィンドーが最後のウィンドーならばVimを閉じる
     let Tlist_Use_Right_Window = 1 " 右側でtaglistのウィンドーを表示
