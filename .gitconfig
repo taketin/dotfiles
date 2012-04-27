@@ -28,5 +28,14 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ls = log --stat
     dn = diff --name-only
+    cdev = checkout develop
+    cmas = checkout master
+    pdev = push origin develop
+    pmas = push origin master
+    ff = flow feature
+    ffs = flow feature start
+    fff = flow feature finish
+    frs = flow release start
+    frf = flow release finish
 [core]
     excludesfile = ~/.gitignore
