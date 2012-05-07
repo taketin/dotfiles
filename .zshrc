@@ -155,6 +155,9 @@ fi
 
 # rbenv setting
 eval "$(rbenv init -)"
+if [ -f $HOME/.rbenv ]; then
+    export PATH=$HOME/.rbenv/versions/1.9.2-p290/bin:$PATH
+fi
 
 # commandline to clipboard copy
 pbcopy-buffer(){ 
