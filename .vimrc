@@ -186,6 +186,9 @@ NeoBundle "mitechie/pyflakes-pathogen"
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'itspriddle/vim-javascript-indent'
 
+" CoffeeScript
+NeoBundle 'chmck/vim-coffee-script'
+
 " Color Scheme
 NeoBundle "altercation/vim-colors-solarized"
 
@@ -213,6 +216,11 @@ NeoBundle "altercation/vim-colors-solarized"
     " ESCキーを2回押すと終了
     au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
     au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" }}}
+
+" quickrun {{{
+    let g:quickrun_config = {}
+    let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 " }}}
 
 " taglist {{{
