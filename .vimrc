@@ -118,7 +118,7 @@ augroup vimrc-auto-mkdir
 augroup END
 
 
-""-----------------------------------------------------
+"-----------------------------------------------------
 "  NeoBundle
 "-----------------------------------------------------
 filetype off
@@ -150,6 +150,7 @@ NeoBundle "Lokaltog/vim-powerline"
 NeoBundle "mattn/gist-vim"
 NeoBundle "mattn/webapi-vim"
 NeoBundle 'glidenote/memolist.vim'
+" NeoBundle "scottstvnsn/autoclose.vim"
 " NeoBundle "kakkyz81/evervim"
 
 " vim online
@@ -350,7 +351,7 @@ set display=lastline
 set expandtab                  " タブ入力がスペースに変換 :retab でタブ・スペースの変換
 set formatoptions+=mM          " 整形オプションにマルチバイト系を追加
 set laststatus=2               " ステータスラインを常に表示
-set list
+set list                       " 不過視文字表示
 set listchars=tab:\ \          " タブの左側にカーソル表示
 set lsp=3                      " 行間
 set mouse=a                    " マウスモード有効
@@ -405,8 +406,8 @@ augroup END
 "-----------------------------------------------------
 "  検索系設定
 "-----------------------------------------------------
-set hlsearch                   " 検索結果文字列のハイライトを有効にする
-set incsearch
+set hlsearch                 " 検索結果文字列のハイライトを有効にする
+set incsearch                " インクリメンタルサーチ
 set ignorecase  			 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set smartcase  				 " 検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan   				 " 検索時に最後まで行ったら最初に戻る
@@ -418,7 +419,7 @@ set grepprg=ack\ -a
 "  編集系設定
 "-----------------------------------------------------
 "yankした文字列をクリップボードに追加
-" set clipboard+=unnamed
+" set clipboard = unnamed
 
 "コメントが連続で挿入されるのを停止 
 autocmd FileType * setlocal formatoptions-=ro 
