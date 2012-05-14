@@ -28,6 +28,7 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ls = log --stat
     dn = diff --name-only
+    amend = commit --amend -C HEAD
     cdev = checkout develop
     cmas = checkout master
     pdev = push origin develop
