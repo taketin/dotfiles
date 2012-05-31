@@ -141,22 +141,21 @@ kterm*|xterm)
 esac
 
 # nodebrew setting
-if [[ -f ~/.nodebrew/nodebrew ]]; then
+if [ -f ~/.nodebrew/nodebrew ]; then
     export NODE_PATH=/usr/local/lib/node
     export PATH=$HOME/.nodebrew/current/bin:$PATH
     nodebrew use v0.7.7
 fi
 
 # nvm setting
-if [ -f $HOME/.node ]; then
+if [ -d ~/.node ]; then
     ~/.node/nvm.sh
     nvm use v0.7.5
 fi
 
-# rbenv setting
-eval "$(rbenv init -)"
-if [ -f $HOME/.rbenv ]; then
-    export PATH=$HOME/.rbenv/versions/1.9.2-p290/bin:$PATH
+if [ -d ~/.rbenv ]; then
+    export PATH=$HOME/.rbenv/versions/1.9.3-p125/bin:$HOME/.rbenv/versions/1.9.2-p290/bin:$PATH
+    eval "$(rbenv init -)"
 fi
 
 # commandline to clipboard copy
@@ -175,3 +174,16 @@ fi
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+
+# cache for rake routes
+function routes_cache {
+    local routes_cache; routes_cache="./tmp/routes_cache"
+    if [ "$1" = "--force" ]; then
+        rm $routes_cache;
+    fi
+    if ! [ -e $routes_cache ]; then
+        bundle exec rake routes > $routes_cache
+    fi
+    cat $routes_cache
+}
