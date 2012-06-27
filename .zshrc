@@ -65,6 +65,9 @@ fi
 export GREP_COLOR='07;37;40'
 export GREP_OPTIONS='--color=auto'
 
+# command setting
+export LESS='-R'
+
 # auto change directory
 #
 setopt auto_cd
