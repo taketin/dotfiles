@@ -20,6 +20,7 @@
     ui = auto
 [alias]
     co = checkout
+    back = checkout HEAD --
     ci = commit
     pl = !git pull && git submodule update --init
     di = diff
