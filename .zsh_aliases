@@ -33,6 +33,7 @@ alias lg="find . -type d -name .svn -prune -o -type f -print | xargs lgrep -n"
 
 # nocorrect
 alias cap='nocorrect cap'
+alias feature='nocorrect feature'
 
 #ruby
 alias be='bundle exec'
