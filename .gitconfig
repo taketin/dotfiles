@@ -21,7 +21,7 @@
 [alias]
     co = checkout
     back = checkout HEAD --
-    ci = commit
+    ci = commit -m
     pl = !git pull && git submodule update --init
     di = diff
     st = status
@@ -30,6 +30,7 @@
     ls = log --stat
     dn = diff --name-only
     amend = commit --amend -C HEAD
+    mamend = commit --amend -m
     cdev = checkout develop
     cmas = checkout master
     pdev = push origin develop
