@@ -14,6 +14,9 @@ if [ -f /usr/local/bin/git ]; then
     alias git='/usr/local/bin/git'
 fi
 
+# hub
+alias p-r='hub pull-request'
+
 # command
 alias l='ls -hal -G -w'
 alias dir='ls -al | grep ^d'
