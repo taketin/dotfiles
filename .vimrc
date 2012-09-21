@@ -187,7 +187,7 @@ NeoBundle 'JavaScript-syntax'
 NeoBundle 'itspriddle/vim-javascript-indent'
 
 " CoffeeScript
-NeoBundle 'chmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " Color Scheme
 NeoBundle "altercation/vim-colors-solarized"
