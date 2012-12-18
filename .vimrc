@@ -151,7 +151,7 @@ NeoBundle "Lokaltog/vim-powerline"
 NeoBundle "mattn/gist-vim"
 NeoBundle "mattn/webapi-vim"
 NeoBundle 'glidenote/memolist.vim'
-" NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'kien/ctrlp.vim'
 " NeoBundle "scottstvnsn/autoclose.vim"
 " NeoBundle "kakkyz81/evervim"
 
@@ -341,8 +341,8 @@ NeoBundle "altercation/vim-colors-solarized"
 " }}}
 
 " ctrlp {{{
-    " set runtimepath^=~/.vim/ctrlp.vim
-    " helptags ~/.vim/ctrlp.vim/doc
+    set runtimepath^=~/.vim/ctrlp.vim
+    helptags ~/.vim/ctrlp.vim/doc
 " }}}
 
 "-----------------------------------------------------
