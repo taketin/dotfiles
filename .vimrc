@@ -10,6 +10,7 @@
 
 set nocompatible
 let plugin_cmdex_disable = 1
+let $MYVIMRC = '$HOME/.vimrc'
 
 "-----------------------------------------------------
 " 文字コードの自動認識
@@ -150,12 +151,12 @@ NeoBundle "Lokaltog/vim-powerline"
 NeoBundle "mattn/gist-vim"
 NeoBundle "mattn/webapi-vim"
 NeoBundle 'glidenote/memolist.vim'
+" NeoBundle 'kien/ctrlp.vim'
 " NeoBundle "scottstvnsn/autoclose.vim"
 " NeoBundle "kakkyz81/evervim"
 
 " vim online
 NeoBundle "taglist.vim"
-NeoBundle "YankRing.vim"
 NeoBundle "camelcasemotiontaglist.vim"
 NeoBundle "ref.vim"
 NeoBundle "Source-Explorer-srcexpl.vim"
@@ -339,6 +340,10 @@ NeoBundle "altercation/vim-colors-solarized"
     map <Leader>mg  :MemoGrep<CR>
 " }}}
 
+" ctrlp {{{
+    " set runtimepath^=~/.vim/ctrlp.vim
+    " helptags ~/.vim/ctrlp.vim/doc
+" }}}
 
 "-----------------------------------------------------
 "  FILETYPE
@@ -427,7 +432,7 @@ set grepprg=ack\ -a
 "  編集系設定
 "-----------------------------------------------------
 "yankした文字列をクリップボードに追加
-" set clipboard = unnamed
+set clipboard=unnamed,autoselect
 
 "コメントが連続で挿入されるのを停止 
 autocmd FileType * setlocal formatoptions-=ro 
@@ -484,7 +489,6 @@ nnoremap <Space>j <C-f>
 nnoremap <Space>k <C-b>
 nnoremap <Space>w :<C-u>set ff=dos fenc=shift_jis<Enter>
 nnoremap <Space>u :<C-u>set ff=unix fenc=utf-8<Enter>
-nnoremap <Space>sc :<C-u>edit $HOME/Sites/scrapture/<Enter>
 nnoremap <Space>t :<C-u>tabnew<Enter>
 nnoremap <Space>h :<C-u>tabp<Enter>
 nnoremap <Space>l :<C-u>tabn<Enter>
