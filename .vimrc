@@ -342,6 +342,8 @@ NeoBundle "altercation/vim-colors-solarized"
 
 " ctrlp {{{
     set runtimepath^=~/.vim/ctrlp.vim
+    let g:ctrlp_map = '<C-p><C-o>'
+    let g:ctrlp_cmd = 'CtrlP'
     helptags ~/.vim/ctrlp.vim/doc
 " }}}
 
