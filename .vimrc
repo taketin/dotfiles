@@ -456,10 +456,15 @@ augroup END
 autocmd FileType php  :set dictionary=~/.vim/dict/php.dict
 
 "-----------------------------------------------------
+"  Ruby
+"-----------------------------------------------------
+autocmd FileType ruby setl autoindent
+autocmd FileType ruby setl smartindent cinwords=if,elsif,else,unless,for,while,begin,rescue,module,def,class
+autocmd FileType ruby setl tabstop=4 expandtab shiftwidth=2 softtabstop=2
+
+"-----------------------------------------------------
 "  Python
 "-----------------------------------------------------
-filetype on
-filetype plugin on
 autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
