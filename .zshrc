@@ -172,8 +172,14 @@ bindkey '^x^p' pbcopy-buffer
 
 # autojump
 if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
+    . `brew --prefix`/etc/autojump
 fi
+
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+function precmd () {
+   z --add "$(pwd -P)"
+}
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
