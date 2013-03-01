@@ -129,6 +129,9 @@ NeoBundle 'itspriddle/vim-javascript-indent'
 " CoffeeScript
 NeoBundle 'kchmck/vim-coffee-script'
 
+" Slim
+NeoBundle 'slim-template/vim-slim'
+
 " Color Scheme
 NeoBundle "altercation/vim-colors-solarized"
 
@@ -388,6 +391,15 @@ augroup BinaryXXD
     autocmd BufWritePost * if &binary | silent %!xxd -g 1
     autocmd BufWritePost * set nomod | endif
 augroup END
+
+"-----------------------------------------------------
+"  HTML (and more template engine)
+"-----------------------------------------------------
+au BufNewFile,BufRead *.html   set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead *.rhtml  set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.erb    set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.haml   set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.slim   set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 
 "-----------------------------------------------------
 "  PHP
