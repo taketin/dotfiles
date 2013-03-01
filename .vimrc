@@ -75,12 +75,12 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
 NeoBundle "thinca/vim-quickrun"
 NeoBundle "thinca/vim-qfreplace"
-NeoBundle "scrooloose/nerdtree"
+" NeoBundle "scrooloose/nerdtree"
 NeoBundle "kana/vim-fakeclip"
 NeoBundle "fuenor/qfixhowm"
 NeoBundle "fuenor/qfixgrep"
 NeoBundle "vim-scripts/YankRing.vim"
-NeoBundle "sjl/gundo.vim"
+" NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "Lokaltog/vim-powerline"
@@ -97,7 +97,8 @@ NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotiontaglist.vim"
 NeoBundle "ref.vim"
-NeoBundle "Source-Explorer-srcexpl.vim"
+NeoBundle "jinja.vim"
+" NeoBundle "Source-Explorer-srcexpl.vim"
 
 " HTML5
 NeoBundle "mattn/zencoding-vim"
@@ -118,8 +119,8 @@ NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundle "tpope/vim-rails"
 
 " Python
-NeoBundle "lambdalisue/vim-python-virtualenv"
-NeoBundle "mitechie/pyflakes-pathogen"
+" NeoBundle "lambdalisue/vim-python-virtualenv"
+" NeoBundle "mitechie/pyflakes-pathogen"
 
 " js
 NeoBundle 'JavaScript-syntax'
