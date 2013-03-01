@@ -9,10 +9,12 @@
 ##########################################################
 
 
-# Path to your oh-my-zsh configuration.
+## Path to your oh-my-zsh configuration.
+#
 ZSH=$HOME/.oh-my-zsh
 
-# Export Path
+## Export Path
+#
 export PATH=$PATH:/usr/local/bin:$HOME/bin:/Applications/MacVim.app/Contents/MacOS/:/usr/local/share/npm/bin:$HOME/node_modules/.bin
 
 ## Environment variable configuration
@@ -21,11 +23,16 @@ export PATH=$PATH:/usr/local/bin:$HOME/bin:/Applications/MacVim.app/Contents/Mac
 ##
 export LANG=ja_JP.UTF-8
 
+## zsh-completions
+#
+fpath=(~/.zsh-completions $fpath)
+
 ## Pronpt Theme
+#
 export ZSH_THEME="robbyrussell"
 
-
 ## Editor
+#
 export EDITOR='vim'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
