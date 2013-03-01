@@ -90,6 +90,7 @@ NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
+NeoBundle 'rking/ag.vim'
 " NeoBundle "scottstvnsn/autoclose.vim"
 " NeoBundle "kakkyz81/evervim"
 
