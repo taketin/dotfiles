@@ -14,6 +14,9 @@ if [ -f /usr/local/bin/git ]; then
     alias git='/usr/local/bin/git'
 fi
 
+# svn
+alias svn_diff_list='svn diff | awk "/^Index/ {print $NF}"'
+
 # for git issue command
 alias g-i='git issue'
 alias g-i-a='git issue --assignee taketin'
