@@ -28,6 +28,7 @@ alias figlet='figlet -f slant'
 alias di='colordiff'
 alias ack='ag'
 alias grep='grep --color=auto'
+alias g='git'
 
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
