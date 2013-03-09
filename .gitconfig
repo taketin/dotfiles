@@ -20,7 +20,10 @@
 [alias]
     co = checkout
     back = checkout HEAD --
+    a  = add
+    aa = reset HEAD
     ci = commit -m
+    ps = push origin
     pl = !git pull && git submodule update --init
     di = diff
     st = status
@@ -29,11 +32,8 @@
     ls = log --stat
     dn = diff --name-only
     amend = commit --amend -C HEAD
-    mamend = commit --amend -m
     cdev = checkout develop
     cmas = checkout master
-    pdev = push origin develop
-    pmas = push origin master
     ff = flow feature
     ffs = flow feature start
     fff = flow feature finish
