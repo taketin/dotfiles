@@ -28,6 +28,10 @@ alias p-r='hub pull-request'
 alias l='ls -hal -G -w'
 alias dir='ls -al | grep ^d'
 alias figlet='figlet -f slant'
+alias di='colordiff'
+alias ack='ag'
+alias grep='grep --color=auto'
+alias g='git'
 
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
