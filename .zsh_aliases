@@ -48,6 +48,10 @@ alias feature='nocorrect feature'
 
 #ruby
 alias be='bundle exec'
+alias bi='bundle install'
+alias ra='rake'
+alias rs='bundle exec rails server'
+alias gs='bundle exec guard start'
 
 # rails
 alias rr='routes_cache | less'
