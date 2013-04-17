@@ -55,6 +55,11 @@ alias bi='bundle install'
 alias ra='rake'
 alias rs='bundle exec rails server'
 alias gs='bundle exec guard start'
+alias uc-up='bundle exec unicorn_rails -c config/unicorn.rb -E development -p 3000 -D'
 
 # rails
 alias rr='routes_cache | less'
+
+# nginx
+alias nx-start='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+alias nx-stop='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
