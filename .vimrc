@@ -379,6 +379,9 @@ set grepprg=ack\ -a
 "yankした文字列をクリップボードに追加
 set clipboard=unnamed,autoselect
 
+"crontab 対策
+set backupskip=/tmp/*,/private/tmp/*
+
 "コメントが連続で挿入されるのを停止 
 autocmd FileType * setlocal formatoptions-=ro 
 
