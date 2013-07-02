@@ -70,6 +70,9 @@ endif
 NeoBundle "Shougo/neobundle"
 NeoBundle "Shougo/unite.vim"
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neocomplcache-rsense'
+NeoBundle 'honza/snipmate-snippets'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
@@ -93,27 +96,34 @@ NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'rking/ag.vim'
 " NeoBundle "scottstvnsn/autoclose.vim"
 " NeoBundle "kakkyz81/evervim"
-
-" vim online
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotiontaglist.vim"
 NeoBundle "ref.vim"
 NeoBundle "jinja.vim"
+NeoBundle 'taichouchou2/vim-endwise.git'
 " NeoBundle "Source-Explorer-srcexpl.vim"
 
-" HTML5
 NeoBundle "mattn/zencoding-vim"
 NeoBundle "othree/html5.vim"
 NeoBundle "matchit.vim"
+NeoBundle "ruby-matchit"
 NeoBundle "surround.vim"
 NeoBundle 'str2numchar.vim'
+    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-" CSS
+    " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+    " SuperTab like snippets behavior.
+    " imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+    imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+
 " NeoBundle "vim-scripts/css.vim"
 NeoBundle "hail2u/vim-css3-syntax"
 " NeoBundle "css_color.vim"
-
-" SCSS
 NeoBundle "cakebaker/scss-syntax.vim"
 
 " Ruby
@@ -160,6 +170,10 @@ NeoBundle "altercation/vim-colors-solarized"
     " ESCキーを2回押すと終了
     au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
     au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" }}}
+
+" endwise {{{
+    let g:endwise_no_mappings=1
 " }}}
 
 " quickrun {{{
@@ -265,9 +279,40 @@ NeoBundle "altercation/vim-colors-solarized"
 
 " neocomplcache {{{
     let g:neocomplcache_enable_at_startup = 1
-	let g:NeoComplCache_SkipInputTime = '1.5'     " 勝手にオムニ補完しない時間を設定
+    let g:neocomplcache_force_overwrite_completefunc = 1
+    let g:neocomplcache#sources#rsense#home_directory = expand('~/.bundle/rsense-0.3')
+    let g:neocomplcache_enable_camel_case_completion = 1
+    let g:neocomplcache_enable_underbar_completion = 1
+    let g:neocomplcache_skip_auto_completion_time = '0.3'
+    let g:NeoComplCache_SkipInputTime = '1.5'     " 勝手にオムニ補完しない時間を設定
     imap <C-k> <Plug>(neocomplcache_snippets_expand)
     smap <C-k> <Plug>(neocomplcache_snippets_expand)
+    imap <expr><C-g>     neocomplcache#undo_completion()
+    imap <expr><CR>      neocomplcache#smart_close_popup() . "<CR>" . "<Plug>DiscretionaryEnd"
+    imap <silent><expr><S-TAB> pumvisible() ? "\<C-P>" : "\<S-TAB>"
+    " imap <silent><expr><TAB>   pumvisible() ? "\<C-N>" : "\<TAB>"
+    imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+" }}}
+
+" neosnippet {{{
+    let g:neosnippet#snippets_directory='~/.vim/snipmate-snippets/snippets'
+    " <TAB>: completion.
+    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+    " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+    " SuperTab like snippets behavior.
+    " imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+    imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+    " For snippet_complete marker.
+    if has('conceal')
+      set conceallevel=2 concealcursor=i
+    endif
 " }}}
 
 " str2numchar.vim {{{
