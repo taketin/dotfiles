@@ -30,8 +30,9 @@ alias dir='ls -al | grep ^d'
 alias figlet='figlet -f slant'
 alias di='colordiff'
 alias ack='ag'
-alias grep='grep --color=auto'
+alias gr='grep --color=auto'
 alias g='git'
+alias hi='history'
 
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
