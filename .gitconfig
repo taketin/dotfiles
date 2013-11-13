@@ -23,7 +23,7 @@
     a  = add
     aa = reset HEAD
     ci = commit -m
-    ps = push origin
+    ps = push
     pl = !git pull && git submodule update --init
     di = diff
     st = status
@@ -31,7 +31,10 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ls = log --stat
     dn = diff --name-only
+    cancel = reset --soft HEAD^
+    cancel-hard = reset --hard HEAD^
     amend = commit --amend -C HEAD
+    mamend = commit --amend -m
     cdev = checkout develop
     cmas = checkout master
     ff = flow feature
@@ -41,3 +44,6 @@
     frf = flow release finish
 [core]
     excludesfile = ~/.gitignore
+    editer = vi
+[push]
+	default = matching
