@@ -46,6 +46,11 @@ if [ -f $HOME/.zsh_aliases ]; then
     . $HOME/.zsh_aliases
 fi
 
+# import alias setting
+if [ -f $HOME/.zsh_aliases_local ]; then
+    . $HOME/.zsh_aliases_local
+fi
+
 # Source Prezto.
 # if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 #     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
