@@ -12,6 +12,7 @@ set nocompatible
 let plugin_cmdex_disable = 1
 let $MYVIMRC = '$HOME/.vimrc'
 let $MYDOTVIM = '$HOME/.vim'
+let mapleader = ','
 
 "-----------------------------------------------------
 " 文字コードの自動認識
@@ -66,7 +67,6 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/'))
 endif
 
-" github
 NeoBundle "Shougo/neobundle"
 NeoBundle "Shougo/unite.vim"
 NeoBundle 'Shougo/neocomplcache'
@@ -82,7 +82,6 @@ NeoBundle "thinca/vim-qfreplace"
 NeoBundle "kana/vim-fakeclip"
 NeoBundle "fuenor/qfixhowm"
 NeoBundle "fuenor/qfixgrep"
-NeoBundle "vim-scripts/YankRing.vim"
 " NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "scrooloose/syntastic"
@@ -102,6 +101,9 @@ NeoBundle "ref.vim"
 NeoBundle "jinja.vim"
 NeoBundle 'taichouchou2/vim-endwise.git'
 " NeoBundle "Source-Explorer-srcexpl.vim"
+NeoBundle 'osyo-manga/vim-over'
+" NeoBundle "vim-scripts/YankRing.vim"
+NeoBundle 'LeafCage/yankround.vim'
 
 NeoBundle "mattn/zencoding-vim"
 NeoBundle "othree/html5.vim"
@@ -109,18 +111,6 @@ NeoBundle "matchit.vim"
 NeoBundle "ruby-matchit"
 NeoBundle "surround.vim"
 NeoBundle 'str2numchar.vim'
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-    " Plugin key-mappings.
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-
-    " SuperTab like snippets behavior.
-    " imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-    imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-    smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-
 " NeoBundle "vim-scripts/css.vim"
 NeoBundle "hail2u/vim-css3-syntax"
 " NeoBundle "css_color.vim"
@@ -335,6 +325,24 @@ NeoBundle "altercation/vim-colors-solarized"
     helptags ~/.vim/ctrlp.vim/doc
 " }}}
 
+"" over.vim {{{
+    " over.vimの起動
+    nnoremap <silent> <Leader>m :OverCommandLine<CR>
+    " カーソル下の単語をハイライト付きで置換
+    nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+    " コピーした文字列をハイライト付きで置換
+    nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
+" }}}
+
+" yankround.vim {{{
+    nmap p <Plug>(yankround-p)
+    nmap P <Plug>(yankround-P)
+    nmap <C-p> <Plug>(yankround-prev)
+    nmap <C-n> <Plug>(yankround-next)
+    let g:yankround_max_history = 50
+    nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+" }}}
+
 "-----------------------------------------------------
 "  FILETYPE
 "-----------------------------------------------------
@@ -449,6 +457,11 @@ au BufNewFile,BufRead *.rhtml  set tabstop=4 expandtab shiftwidth=2 softtabstop=
 au BufNewFile,BufRead *.erb    set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.haml   set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.slim   set tabstop=4 expandtab shiftwidth=2 softtabstop=2
+
+"-----------------------------------------------------
+"  CoffeeScript
+"-----------------------------------------------------
+au BufNewFile,BufReadPost *.coffee setl tabstop=2 shiftwidth=2 expandtab softtabstop=2
 
 "-----------------------------------------------------
 "  PHP
