@@ -95,7 +95,7 @@ NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'rking/ag.vim'
 " NeoBundle "scottstvnsn/autoclose.vim"
 " NeoBundle "kakkyz81/evervim"
-NeoBundle "taglist.vim"
+" NeoBundle "taglist.vim"
 NeoBundle "camelcasemotiontaglist.vim"
 NeoBundle "ref.vim"
 NeoBundle "jinja.vim"
