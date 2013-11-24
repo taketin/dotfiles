@@ -108,7 +108,7 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle "mattn/zencoding-vim"
 NeoBundle "othree/html5.vim"
 NeoBundle "matchit.vim"
-NeoBundle "ruby-matchit"
+" NeoBundle "ruby-matchit"
 NeoBundle "surround.vim"
 NeoBundle 'str2numchar.vim'
 " NeoBundle "vim-scripts/css.vim"
@@ -117,7 +117,7 @@ NeoBundle "hail2u/vim-css3-syntax"
 NeoBundle "cakebaker/scss-syntax.vim"
 
 " Ruby
-NeoBundle "tpope/vim-rails"
+" NeoBundle "tpope/vim-rails"
 
 " Python
 " NeoBundle "lambdalisue/vim-python-virtualenv"

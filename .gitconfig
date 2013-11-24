@@ -15,6 +15,7 @@
     email = tksthdnr@gmail.com
 [github]
     user = taketin
+    token = 9c1009e39c5f14564a901bdc778af74e
 [color]
     ui = auto
 [alias]
@@ -46,4 +47,4 @@
     excludesfile = ~/.gitignore
     editer = vi
 [push]
-	default = matching
+    default = matching
