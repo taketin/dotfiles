@@ -18,6 +18,10 @@
     token = 9c1009e39c5f14564a901bdc778af74e
 [color]
     ui = auto
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
 [alias]
     co = checkout
     back = checkout HEAD --
