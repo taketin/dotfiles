@@ -104,6 +104,7 @@ NeoBundle 'taichouchou2/vim-endwise.git'
 NeoBundle 'osyo-manga/vim-over'
 " NeoBundle "vim-scripts/YankRing.vim"
 NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'tpope/vim-fugitive'
 
 NeoBundle "mattn/zencoding-vim"
 NeoBundle "othree/html5.vim"
