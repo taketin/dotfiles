@@ -50,6 +50,13 @@ if [ -f $HOME/.zsh_aliases_local ]; then
     . $HOME/.zsh_aliases_local
 fi
 
+# setting to terminal_notifier for mac osx
+if [ -f $HOME/.zsh.d/zsh-notify/notify.plugin.zsh ]; then
+    source ~/.zsh.d/zsh-notify/notify.plugin.zsh
+    export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
+    export NOTIFY_COMMAND_COMPLETE_TIMEOUT=30
+fi
+
 # Source Prezto.
 # if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 #     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
