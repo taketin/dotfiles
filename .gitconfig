@@ -18,20 +18,31 @@
     token = 9c1009e39c5f14564a901bdc778af74e
 [color]
     ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    grep = auto
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
     diff = diff-highlight | less
+[http]
+    sslVerify = false
 [alias]
-    co = checkout
-    back = checkout HEAD --
     a  = add
     aa = reset HEAD
+    back = checkout HEAD --
+    co = checkout
     ci = commit -m
+    gr = grep
+    wip = commit --allow-empty -m
     ps = push
     pl = !git pull && git submodule update --init
     di = diff
+    da = diff --staged
+    dm = diff master
     st = status
+    so = remote show origin
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ls = log --stat
@@ -40,15 +51,26 @@
     cancel-hard = reset --hard HEAD^
     amend = commit --amend -C HEAD
     mamend = commit --amend -m
-    cdev = checkout develop
-    cmas = checkout master
+    cd = checkout develop
+    cm = checkout master
     ff = flow feature
     ffs = flow feature start
     fff = flow feature finish
     frs = flow release start
     frf = flow release finish
+    rank = shortlog -s -n --no-merges
+
+    # mergeの際にconflictが起きたファイルを編集
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+
+    # mergeの際にconflictが起きたファイルをadd
+    add-unmerged  = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [core]
     excludesfile = ~/.gitignore
     editer = vi
+    quotepath = false
+    pager = "nkf -w"
+    editor = vim -c \"set fenc=utf-8\"
+    autocrlf = input
 [push]
     default = matching
