@@ -60,6 +60,9 @@
     frf = flow release finish
     rank = shortlog -s -n --no-merges
 
+    # submodule 更新
+    subupdate = submodule foreach "git checkout master; git pull"
+
     # mergeの際にconflictが起きたファイルを編集
     edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 
