@@ -13,9 +13,6 @@
 [user]
     name = taketin
     email = tksthdnr@gmail.com
-[github]
-    user = taketin
-    token = 9c1009e39c5f14564a901bdc778af74e
 [color]
     ui = auto
     diff = auto
@@ -26,6 +23,9 @@
     log = diff-highlight | less
     show = diff-highlight | less
     diff = diff-highlight | less
+[diff]
+    # a/ b/ を消す
+    noprefix = true
 [http]
     sslVerify = false
 [alias]
@@ -75,5 +75,7 @@
     pager = "nkf -w"
     editor = vim -c \"set fenc=utf-8\"
     autocrlf = input
+    # Mac で濁点入り日本語を扱える
+    precomposeunicode = true
 [push]
     default = matching
