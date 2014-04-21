@@ -34,18 +34,20 @@
     back = checkout HEAD --
     co = checkout
     ci = commit -m
-    gr = grep
+    gr = grep --line-number --show-function --color --heading --break
     wip = commit --allow-empty -m
     ps = push
     pl = !git pull && git submodule update --init
-    di = diff
+    d = diff
     da = diff --staged
     dm = diff master
-    st = status --short --branch
+    s = status --short --branch
     so = remote show origin
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    ls = log --stat
+    l = log --decorate
+    lp = log --decorate --stat --patch
+    ls = ls-files
     dn = diff --name-only
     cancel = reset --soft HEAD^
     cancel-hard = reset --hard HEAD^
