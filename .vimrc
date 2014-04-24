@@ -135,6 +135,10 @@ NeoBundle "hail2u/vim-css3-syntax"
 " NeoBundle "css_color.vim"
 NeoBundle "cakebaker/scss-syntax.vim"
 
+" Markdown
+NeoBundle 'Markdown'
+NeoBundle 'suan/vim-instant-markdown'
+
 " Ruby
 " NeoBundle "tpope/vim-rails"
 
