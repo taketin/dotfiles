@@ -188,6 +188,8 @@ NeoBundle "altercation/vim-colors-solarized"
 " quickrun {{{
     let g:quickrun_config = {}
     let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+    " see http://vim-users.jp/2011/09/hack230/
+    let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 " }}}
 
 " taglist {{{
