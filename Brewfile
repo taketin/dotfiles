@@ -43,7 +43,7 @@ install tig
 install tmux
 install tree
 install vim
-install weechat
+install weechat --with-ruby --with-python --with-perl
 install wget
 install z
 install zsh
