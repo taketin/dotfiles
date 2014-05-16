@@ -211,22 +211,21 @@ kterm*|xterm)
 	;;
 esac
 
-# nodebrew setting
-if [ -f ~/.nodebrew/nodebrew ]; then
-    export NODE_PATH=/usr/local/lib/node
-    export PATH=$HOME/.nodebrew/current/bin:$PATH
-    # nodebrew use v0.7.7
-fi
-
 # nvm setting
 if [ -d ~/.node ]; then
     ~/.node/nvm.sh
     # nvm use v0.7.5
 fi
 
-if [ -d ~/.rbenv ]; then
-    export PATH=$HOME/.rbenv/versions/1.9.3-p125/bin:$HOME/.rbenv/versions/1.9.2-p290/bin:$PATH
-    eval "$(rbenv init -)"
+# anyenv settings
+if [ -d ${HOME}/.anyenv ] ; then
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+    for D in `ls $HOME/.anyenv/envs`
+    do
+        export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+    done
+
 fi
 
 # commandline to clipboard copy
