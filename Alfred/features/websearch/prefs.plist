@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>14BCCCFD-FBF9-4CA1-927A-EBBD11E78822</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ej</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Google翻訳（英語 &gt; 日本語）</string>
+			<key>url</key>
+			<string>http://translate.google.co.jp/#en/ja/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>58D88F1A-5114-42F0-A0B8-540300806935</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>je</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Google翻訳（日本語 &gt; 英語）</string>
+			<key>url</key>
+			<string>http://translate.google.co.jp/#ja/en/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
