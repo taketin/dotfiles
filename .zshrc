@@ -8,7 +8,6 @@
 #                                                        #
 ##########################################################
 
-
 ## Path to your oh-my-zsh configuration.
 #
 ZSH=$HOME/.oh-my-zsh
@@ -27,6 +26,7 @@ export LANG=ja_JP.UTF-8
 #
 
 fpath=(~/.zsh-completions $fpath)
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 ## Pronpt Theme
 #
