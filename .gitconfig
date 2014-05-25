@@ -9,10 +9,8 @@
 ;                                                                               ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-[user]
-    name = taketin
-    email = tksthdnr@gmail.com
+[include]
+    path = .gitconfig.local
 [color]
     ui = auto
     diff = auto
@@ -24,6 +22,8 @@
     show = diff-highlight | less
     diff = diff-highlight | less
 [diff]
+    tool = meld
+    guitool = meld
     # a/ b/ を消す
     noprefix = true
 [http]
@@ -40,6 +40,9 @@
     pl = !git pull && git submodule update --init
     d = diff
     da = diff --staged
+    dc = difftool --cached
+    dh = difftool -d HEAD
+    di = difftool -d
     dm = diff master
     s = status --short --branch
     so = remote show origin
@@ -71,7 +74,7 @@
     # mergeの際にconflictが起きたファイルをadd
     add-unmerged  = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = /Users/takeshitahidenori/.gitignore
     editer = vi
     quotepath = false
     pager = "nkf -w"
@@ -81,3 +84,5 @@
     precomposeunicode = true
 [push]
     default = matching
+[mergetool]
+    keepBackup = false
