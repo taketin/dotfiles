@@ -37,6 +37,7 @@ install nkf
 install node
 install openssl
 install rbenv
+install reattach-to-user-namespace
 install ruby-build
 install the_silver_sercher
 install tig
