@@ -211,12 +211,6 @@ kterm*|xterm)
 	;;
 esac
 
-# nvm setting
-if [ -d ~/.node ]; then
-    ~/.node/nvm.sh
-    # nvm use v0.7.5
-fi
-
 # anyenv settings
 if [ -d ${HOME}/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
@@ -225,7 +219,6 @@ if [ -d ${HOME}/.anyenv ] ; then
     do
         export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
     done
-
 fi
 
 # commandline to clipboard copy
