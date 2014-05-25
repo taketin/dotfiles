@@ -47,8 +47,10 @@ install weechat --with-ruby --with-python --with-perl
 install wget
 install z
 install zsh
+# install meld # do cask install xquartz ahead
 
 # .dmg
+cask install xquartz # required reboot to xquartz enable
 cask install adobe-reader
 cask install alfred
 cask install appcleaner
