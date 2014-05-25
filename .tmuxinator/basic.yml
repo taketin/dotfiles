@@ -1,20 +1,22 @@
 # ~/.tmuxinator/basic.yml
 
-project_name: basic
-project_root: ~/
-#socket_name: foo # Not needed.  Remove to use default socket
-#rvm: 1.9.2@rails_project
-#pre: sudo /etc/rc.d/mysqld start
-tabs:
-  - editor:
+name: basic
+root: ~/projects
+pre:
+ - cd ~/github/dotfiles
+ - git pull origin master
+ - cd ~/projects
+
+windows:
+  - main:
       layout: main-vertical
       panes:
-        -
-        -
-        - top
-#  - database: rails db
-#  - server: rails s
-#  - logs: tail -f logs/development.log
-#  - console: rails c
-# - capistrano:
-#  - server: ssh me@myhost
+        - #empty
+        - #empty
+        - #empty
+  - sub:
+      layout: main-vertical
+      panes:
+        - #empty
+        - #empty
+        - #empty
