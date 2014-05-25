@@ -81,8 +81,8 @@ augroup END
 filetype off
 
 if has('vim_starting')
-    set runtimepath+=~/.vim/neobundle.vim
-    call neobundle#rc(expand('~/.vim/'))
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
 NeoBundle "Shougo/neobundle"
@@ -347,7 +347,7 @@ NeoBundle "altercation/vim-colors-solarized"
     set runtimepath^=~/.vim/ctrlp.vim
     let g:ctrlp_map = '<C-p><C-o>'
     let g:ctrlp_cmd = 'CtrlP'
-    helptags ~/.vim/ctrlp.vim/doc
+    helptags ~/.vim/bundle/ctrlp.vim/doc
 " }}}
 
 "" over.vim {{{
