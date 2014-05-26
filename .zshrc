@@ -181,6 +181,7 @@ bindkey '^S' history-incremental-pattern-search-forward
 ## Command history configuration
 #
 HISTFILE=~/.zsh_history
+HISTCONTROL=ignoreboth:erasedups
 HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups     # ignore duplication command history list
