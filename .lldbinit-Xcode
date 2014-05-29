@@ -1,0 +1,4 @@
+command script import /usr/local/Cellar/chisel/1.1.0/libexec/fblldb.py
+command regex pv 's/^[[:space:]]*$/ po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]/' 's/^(.+)$/ po [%| recursiveDescription]/'
+
+command source ~/.lldbinit
