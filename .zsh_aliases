@@ -22,7 +22,7 @@ alias g-i='git issue'
 alias g-i-a='git issue --assignee taketin'
 
 # for hub command
-eval "$(hub alias -s)"
+# eval "$(hub alias -s)"
 alias p-r='hub pull-request'
 
 # command
