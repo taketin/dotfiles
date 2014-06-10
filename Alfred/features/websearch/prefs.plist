@@ -34,6 +34,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>FC1F8D3D-2BFB-49E6-AB09-6CF3825847F1</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>s</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>search Swift document</string>
+			<key>url</key>
+			<string>https://www.google.co.jp/#q=site:https://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language+{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
