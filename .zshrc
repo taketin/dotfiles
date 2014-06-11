@@ -283,10 +283,10 @@ fi
 
 function search-document-by-percol(){
   DOCUMENT_DIR="\
-/Users/FKST14573/work/
+$HOME/work/
 "
   SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
-    ag -w "\.(h|m||md|plist)$" | percol --match-method regex)
+    ag -w "\.(h|m||md|plist|swift|rb)$" | percol --match-method regex)
   if [ $? -eq 0 ]; then
     vi $SELECTED_FILE
   fi
