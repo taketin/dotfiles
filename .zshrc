@@ -263,3 +263,32 @@ function git-root() {
     cd `pwd`/`git rev-parse --show-cdup`
   fi
 }
+
+# setting for percol
+
+function exists { which $1 &> /dev/null }
+
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
+
+function search-document-by-percol(){
+  DOCUMENT_DIR="\
+/Users/FKST14573/work/
+"
+  SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
+    ag -w "\.(h|m||md|plist)$" | percol --match-method regex)
+  if [ $? -eq 0 ]; then
+    vi $SELECTED_FILE
+  fi
+}
+alias sp='search-document-by-percol'

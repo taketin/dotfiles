@@ -35,6 +35,7 @@ alias gr='grep --color=auto'
 alias g='git'
 alias s='git s'
 alias hi='history'
+alias tac='tail -r'
 
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
