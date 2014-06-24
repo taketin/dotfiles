@@ -19,6 +19,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>5556895A-5628-4B65-9550-C33CDBC327AB</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>q</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>search Qiita</string>
+			<key>url</key>
+			<string>http://qiita.com/search?utf8=%E2%9C%93&amp;sort=&amp;q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>58D88F1A-5114-42F0-A0B8-540300806935</key>
 		<dict>
 			<key>enabled</key>
@@ -31,6 +46,21 @@
 			<string>Google翻訳（日本語 &gt; 英語）</string>
 			<key>url</key>
 			<string>http://translate.google.co.jp/#ja/en/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>6860569F-2ACC-46B1-9EEC-72D6BD00437D</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>qs</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>search Qiita tag is Swift</string>
+			<key>url</key>
+			<string>http://qiita.com/search?utf8=%E2%9C%93&amp;sort=&amp;q=tag%3Aswift+{query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
