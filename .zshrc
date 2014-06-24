@@ -286,9 +286,8 @@ function search-document-by-percol(){
 $HOME/work/
 "
   SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
-    ag -w "\.(h|m||md|plist|swift|rb)$" | percol --match-method regex)
+    ag -w "\.(h|m||md|plist|swift|rb|pl|pm|js|coffee|scss|tt)$" | percol --match-method regex)
   if [ $? -eq 0 ]; then
     vi $SELECTED_FILE
   fi
 }
-alias sp='search-document-by-percol'

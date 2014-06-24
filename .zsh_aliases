@@ -36,6 +36,7 @@ alias g='git'
 alias s='git s'
 alias hi='history'
 alias tac='tail -r'
+alias p='search-document-by-percol'
 
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
