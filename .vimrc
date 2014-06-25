@@ -90,7 +90,7 @@ NeoBundle "Shougo/unite.vim"
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neocomplcache-rsense'
-NeoBundle 'honza/snipmate-snippets'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
@@ -114,9 +114,8 @@ NeoBundle 'rking/ag.vim'
 " NeoBundle "scottstvnsn/autoclose.vim"
 " NeoBundle "kakkyz81/evervim"
 " NeoBundle "taglist.vim"
-NeoBundle "camelcasemotiontaglist.vim"
 NeoBundle "ref.vim"
-NeoBundle "jinja.vim"
+NeoBundle "lepture/vim-jinja"
 NeoBundle 'taichouchou2/vim-endwise.git'
 " NeoBundle "Source-Explorer-srcexpl.vim"
 NeoBundle 'osyo-manga/vim-over'
@@ -124,9 +123,9 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'tpope/vim-fugitive'
 
-NeoBundle "mattn/zencoding-vim"
+NeoBundle "mattn/emmet-vim"
 NeoBundle "othree/html5.vim"
-NeoBundle "matchit.vim"
+NeoBundle "tmhedberg/matchit"
 " NeoBundle "ruby-matchit"
 NeoBundle "surround.vim"
 NeoBundle 'str2numchar.vim'
