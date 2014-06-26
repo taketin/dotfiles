@@ -264,6 +264,64 @@ function git-root() {
   fi
 }
 
+#cdr
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+
+typeset -ga chpwd_functions
+
+autoload -U chpwd_recent_dirs cdr
+chpwd_functions+=chpwd_recent_dirs
+zstyle ":chpwd:*" recent-dirs-max 500
+zstyle ":chpwd:*" recent-dirs-default true
+zstyle ":completion:*" recent-dirs-insert always
+
+# setting for peco
+
+function exists { which $1 &> /dev/null }
+
+_peco_mdfind() {
+  open $(mdfind -onlyin ~/ -name $@ | peco)
+}
+alias s="_peco_mdfind"
+
+if exists peco; then
+
+    function peco-select-history() {
+        local tac
+            if which tac > /dev/null; then
+                tac="tac"
+            else
+                tac="tail -r"
+            fi
+            BUFFER=$(fc -l -n 1 | \
+                     eval $tac | \
+                     peco --query "$LBUFFER")
+            CURSOR=$#BUFFER
+            zle clear-screen
+    }
+    zle -N peco-select-history
+    bindkey '^r' peco-select-history
+
+    alias killco="ps ax | peco | awk '{ print $1 }' | xargs kill"
+    alias psp="ps ax | peco "
+
+    if exists cdr; then
+        function peco-cdr () {
+            local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
+            if [ -n "$selected_dir" ]; then
+                BUFFER="cd ${selected_dir}"
+                zle accept-line
+            fi
+            zle clear-screen
+        }
+        zle -N peco-cdr
+        bindkey '^z' peco-cdr
+    fi
+fi
+
 # setting for percol
 
 function exists { which $1 &> /dev/null }
@@ -286,8 +344,9 @@ function search-document-by-percol(){
 $HOME/work/
 "
   SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
-    ag -w "\.(h|m||md|plist|swift|rb|pl|pm|js|coffee|scss|tt)$" | percol --match-method regex)
+    ag -w "\.(h|m|md|plist|swift|rb|pl|pm|js|coffee|scss|tt)$" | percol --match-method regex)
   if [ $? -eq 0 ]; then
     vi $SELECTED_FILE
   fi
 }
+alias p='search-document-by-percol'
