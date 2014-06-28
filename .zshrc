@@ -282,12 +282,10 @@ zstyle ":completion:*" recent-dirs-insert always
 
 function exists { which $1 &> /dev/null }
 
-_peco_mdfind() {
-  open $(mdfind -onlyin ~/ -name $@ | peco)
-}
-alias s="_peco_mdfind"
-
 if exists peco; then
+    _peco_mdfind() {
+      open $(mdfind -onlyin ~/ -name $@ | peco)
+    }
 
     function peco-select-history() {
         local tac
@@ -305,9 +303,6 @@ if exists peco; then
     zle -N peco-select-history
     bindkey '^r' peco-select-history
 
-    alias killco="ps ax | peco | awk '{ print $1 }' | xargs kill"
-    alias psp="ps ax | peco "
-
     if exists cdr; then
         function peco-cdr () {
             local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
@@ -320,11 +315,20 @@ if exists peco; then
         zle -N peco-cdr
         bindkey '^z' peco-cdr
     fi
+
+    function search-document-by-peco(){
+        DOCUMENT_DIR="\
+          $HOME/work/
+        "
+        SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
+            ag -w "\.(h|m|md|plist|swift|rb|pl|pm|js|coffee|scss|pl|tt|js|coffee)$" | peco)
+        if [ $? -eq 0 ]; then
+            vi $SELECTED_FILE
+        fi
+    }
 fi
 
 # setting for percol
-
-function exists { which $1 &> /dev/null }
 
 if exists percol; then
     function percol_select_history() {
@@ -335,18 +339,17 @@ if exists percol; then
         zle -R -c               # refresh
     }
 
-    zle -N percol_select_history
-    bindkey '^R' percol_select_history
-fi
+    # zle -N percol_select_history
+    # bindkey '^R' percol_select_history
 
-function search-document-by-percol(){
-  DOCUMENT_DIR="\
-$HOME/work/
-"
-  SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
-    ag -w "\.(h|m|md|plist|swift|rb|pl|pm|js|coffee|scss|tt)$" | percol --match-method regex)
-  if [ $? -eq 0 ]; then
-    vi $SELECTED_FILE
-  fi
-}
-alias p='search-document-by-percol'
+    function search-document-by-percol(){
+        DOCUMENT_DIR="\
+            $HOME/work/
+        "
+        SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
+            ag -w "\.(h|m|md|plist|swift|rb|pl|pm|js|coffee|scss|tt)$" | percol --match-method regex)
+        if [ $? -eq 0 ]; then
+            vi $SELECTED_FILE
+        fi
+    }
+fi

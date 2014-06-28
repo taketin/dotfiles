@@ -37,6 +37,14 @@ alias s='git s'
 alias hi='history'
 alias tac='tail -r'
 
+# Peco
+alias s="_peco_mdfind"
+alias killco="ps ax | peco | awk '{ print $1 }' | xargs kill"
+alias psp="ps ax | peco "
+alias p='search-document-by-peco'
+alias o='git ls-files | peco | xargs open'
+alias v='git ls-files | peco | xargs -o vi'
+
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
     source "$HOME/.pythonbrew/etc/bashrc"

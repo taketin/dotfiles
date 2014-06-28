@@ -367,6 +367,10 @@ NeoBundle "altercation/vim-colors-solarized"
     nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 " }}}
 
+" open-github-files {{{
+    map <Leader>ogf :OpenGithubFile<CR>
+" }}}
+
 "-----------------------------------------------------
 "  FILETYPE
 "-----------------------------------------------------
@@ -508,7 +512,7 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 "-----------------------------------------------------
-" pyflakes suntax-color setting
+" pyflakes syntax-color setting
 "-----------------------------------------------------
 if has("gui_running")
     highlight SpellBad term=underline gui=undercurl guisp=Orange
@@ -523,6 +527,15 @@ function! s:ExecPy()
 command! Exec call <SID>ExecPy()
 autocmd FileType python map <silent> <C-P> :call <SID>ExecPy()<CR>
 
+"-----------------------------------------------------
+" PecoOpen
+"-----------------------------------------------------
+function! PecoOpen()
+  for filename in split(system("find . -type f | peco"), "\n")
+    execute "e" filename
+  endfor
+endfunction
+nnoremap <Leader>op :call PecoOpen()<CR>
 
 "-----------------------------------------------------
 " REMAP
