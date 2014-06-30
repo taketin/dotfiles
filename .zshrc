@@ -318,10 +318,15 @@ if exists peco; then
 
     function search-document-by-peco(){
         DOCUMENT_DIR="\
-          $HOME/work/
+          $HOME/work
+          $HOME/dotfiles
+          $HOME/Dropbox
+          $HOME/Downloads
+          $HOME/Documents
+          $HOME/Desktop
         "
-        SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
-            ag -w "\.(h|m|md|plist|swift|rb|pl|pm|js|coffee|scss|pl|tt|js|coffee)$" | peco)
+        SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs -I {} find {} -type d \( -name '.git' \) -prune -o -print | \
+            egrep -v "\.(gif|jpg|jpeg|png|img|wav|mp3|mpeg|mpeg4|dmg|xls|xlsx|ppt|word|pdf)$" | peco)
         if [ $? -eq 0 ]; then
             vi $SELECTED_FILE
         fi
