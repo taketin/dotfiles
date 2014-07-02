@@ -427,8 +427,8 @@ if has("syntax")
 endif
 
 " ポップアップカラー
-hi Pmenu ctermbg=darkgray guibg=darkgray
-hi PmenuSel ctermbg=brown ctermfg=white guibg=brown guifg=white
+hi Pmenu ctermbg=white guibg=darkgray
+hi PmenuSel ctermbg=red guibg=brown guifg=white
 hi PmenuSbar ctermbg=black guibg=black
 
 " 入力モード時、ステータスラインのカラーを変更
