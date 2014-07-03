@@ -87,10 +87,10 @@ endif
 
 NeoBundle "Shougo/neobundle"
 NeoBundle "Shougo/unite.vim"
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplcache-rsense'
-NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
@@ -221,13 +221,13 @@ NeoBundle "altercation/vim-colors-solarized"
 
 " NERDTree {{{
 	" 引数無しで vim を開いたら NERDTree 起動
-	let file_name = expand("%")
-	if has('vim_starting') &&  file_name == ""
-    	autocmd VimEnter * NERDTree ./
-	endif
-	
-    nnoremap <Space>tr :<C-u>NERDTreeToggle<Enter>
-    let NERDTreeShowHidden = 1
+	" let file_name = expand("%")
+	" if has('vim_starting') &&  file_name == ""
+    " 	autocmd VimEnter * NERDTree ./
+	" endif
+	"
+    " nnoremap <Space>tr :<C-u>NERDTreeToggle<Enter>
+    " let NERDTreeShowHidden = 1
 " }}}
 
 " Powerline {{{
@@ -291,37 +291,85 @@ NeoBundle "altercation/vim-colors-solarized"
 	autocmd FileType html let b:surround_100 = "<div>\r</div>"
 " }}}
 
-" neocomplcache {{{
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_force_overwrite_completefunc = 1
-    let g:neocomplcache#sources#rsense#home_directory = expand('~/.bundle/rsense-0.3')
-    let g:neocomplcache_enable_camel_case_completion = 1
-    let g:neocomplcache_enable_underbar_completion = 1
-    let g:neocomplcache_skip_auto_completion_time = '0.3'
-    let g:NeoComplCache_SkipInputTime = '1.5'     " 勝手にオムニ補完しない時間を設定
-    imap <C-k> <Plug>(neocomplcache_snippets_expand)
-    smap <C-k> <Plug>(neocomplcache_snippets_expand)
-    imap <expr><C-g>     neocomplcache#undo_completion()
-    imap <expr><CR>      neocomplcache#smart_close_popup() . "<CR>" . "<Plug>DiscretionaryEnd"
-    imap <silent><expr><S-TAB> pumvisible() ? "\<C-P>" : "\<S-TAB>"
-    " imap <silent><expr><TAB>   pumvisible() ? "\<C-N>" : "\<TAB>"
-    imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+" neocomplete {{{
+    " Disable AutoComplPop.
+    let g:acp_enableAtStartup = 0
+    " Use neocomplete.
+    let g:neocomplete#enable_at_startup = 1
+    " Use smartcase.
+    let g:neocomplete#enable_smart_case = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplete#sources#syntax#min_keyword_length = 3
+    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+    " Define dictionary.
+    let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+
+    " Define keyword.
+    if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+    endif
+    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+    " Plugin key-mappings.
+    inoremap <expr><C-g>     neocomplete#undo_completion()
+    inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+    " Recommended key-mappings.
+    " <CR>: close popup and save indent.
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+    function! s:my_cr_function()
+      return neocomplete#close_popup() . "\<CR>"
+      " For no inserting <CR> key.
+      "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    endfunction
+    " <TAB>: completion.
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    " <C-h>, <BS>: close popup and delete backword char.
+    inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><C-y>  neocomplete#close_popup()
+    inoremap <expr><C-e>  neocomplete#cancel_popup()
+    " Close popup by <Space>.
+    "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+    " Enable heavy omni completion.
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+      let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+    "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+    "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+    " For perlomni.vim setting.
+    " https://github.com/c9s/perlomni.vim
+    let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}
 
 " neosnippet {{{
-    let g:neosnippet#snippets_directory='~/.vim/snipmate-snippets/snippets'
-    " <TAB>: completion.
-    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
     " Plugin key-mappings.
     imap <C-k>     <Plug>(neosnippet_expand_or_jump)
     smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
 
     " SuperTab like snippets behavior.
-    " imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-    imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-    smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: "\<TAB>"
 
     " For snippet_complete marker.
     if has('conceal')
@@ -427,9 +475,9 @@ if has("syntax")
 endif
 
 " ポップアップカラー
-hi Pmenu ctermbg=white guibg=darkgray
-hi PmenuSel ctermbg=red guibg=brown guifg=white
-hi PmenuSbar ctermbg=black guibg=black
+hi Pmenu ctermbg=grey guibg=darkgray
+hi PmenuSel ctermbg=yellow guibg=brown guifg=white
+hi PmenuSbar ctermbg=yellow guibg=black
 
 " 入力モード時、ステータスラインのカラーを変更
 augroup InsertHook
