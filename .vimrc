@@ -138,6 +138,9 @@ NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundle 'Markdown'
 NeoBundle 'suan/vim-instant-markdown'
 
+" Swift
+NeoBundle 'toyamarinyon/vim-swift'
+
 " Ruby
 " NeoBundle "tpope/vim-rails"
 
