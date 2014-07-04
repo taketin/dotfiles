@@ -41,6 +41,9 @@ export EDITOR='vim'
 # plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# Go Setting
+export GOPATH=$HOME/go
+
 # import alias setting
 if [ -f $HOME/.zsh_aliases ]; then
     . $HOME/.zsh_aliases

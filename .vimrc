@@ -155,6 +155,9 @@ NeoBundle 'itspriddle/vim-javascript-indent'
 " CoffeeScript
 NeoBundle 'kchmck/vim-coffee-script'
 
+" Golang
+NeoBundle 'fatih/vim-go'
+
 " Slim
 NeoBundle 'slim-template/vim-slim'
 
