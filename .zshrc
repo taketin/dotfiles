@@ -319,6 +319,14 @@ if exists peco; then
         bindkey '^z' peco-cdr
     fi
 
+    function peco-pkill() {
+      for pid in `ps aux | peco | awk '{ print $2 }'`
+      do
+        kill $pid
+        echo "Killed ${pid}"
+      done
+    }
+
     function search-document-by-peco(){
         DOCUMENT_DIR="\
           $HOME/work
