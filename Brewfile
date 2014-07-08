@@ -43,7 +43,7 @@ install peco
 install rbenv
 install reattach-to-user-namespace
 install ruby-build
-install the_silver_sercher
+install the_silver_searcher
 install tig
 install tmux
 install tree
@@ -87,7 +87,7 @@ cask install reeder
 cask install sequel-pro
 cask install skitch
 cask install skype
-cask install soundcleod
+cask install soundcloud
 cask install sourcetree
 cask install trailer
 cask install truecrypt
