@@ -12,9 +12,19 @@
 #
 ZSH=$HOME/.oh-my-zsh
 
-## Export Path
+## Exclude for duplicate path
 #
-export PATH=$PATH:/usr/local/bin:$HOME/bin:/Applications/MacVim.app/Contents/MacOS:/usr/local/share/npm/bin:$HOME/node_modules/.bin
+typeset -U path cdpath fpath manpath
+
+## Path for sudo
+#
+typeset -xT SUDO_PATH sudo_path
+typeset -U sudo_path
+sudo_path=({/usr/local,/usr,}/sbin(N-/))
+
+## Path
+#
+path=(~/bin(N-/) /usr/local/bin(N-/) ${path})
 
 ## Environment variable configuration
 ##
