@@ -17,7 +17,7 @@ emu/
 tags
 *.html.php
 *.svn/
-.zsh/cdd_pwd_list*
+.zsh/*cdd_pwd_list*
 .zsh/local.zshenv
 .vim/*
 .vim/bundle/*
