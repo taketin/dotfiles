@@ -14,6 +14,9 @@ let $MYVIMRC = '$HOME/.vimrc'
 let $MYDOTVIM = '$HOME/.vim'
 let mapleader = ','
 
+" see https://github.com/suan/vim-instant-markdown
+set shell=bash\ -i
+
 "-----------------------------------------------------
 " 文字コードの自動認識
 "-----------------------------------------------------
