@@ -7,6 +7,7 @@ update
 # Add Repository
 tap homebrew/versions || true
 tap homebrew/binary || true
+tap peco/peco
 tap taketin/homebrew-cask || true
 # tap phinze/homebrew-cask || true
 
@@ -17,6 +18,7 @@ install automake
 install boot2docker
 install brew-cask
 install bsdmake
+install cgdb
 install chromedriver
 install ctags
 install cmake
@@ -32,10 +34,12 @@ install go
 install hub
 install imagemagick
 install jpeg
+install jq
 install lv
 install nkf
 install node
 install openssl
+install peco
 install rbenv
 install reattach-to-user-namespace
 install ruby-build
@@ -43,7 +47,7 @@ install the_silver_sercher
 install tig
 install tmux
 install tree
-install vim
+install vim --devel --with-ruby --with-lua
 install weechat --with-ruby --with-python --with-perl
 install wget
 install z
