@@ -3,9 +3,9 @@
 name: basic
 root: ~/projects
 pre:
- - cd ~/github/dotfiles
+ - cd ~/dotfiles
  - git pull origin master
- - cd ~/projects
+ - cd ~/work
 
 windows:
   - main:
