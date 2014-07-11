@@ -97,6 +97,7 @@ NeoBundle 'Shougo/neocomplcache-rsense'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
+NeoBundle "thinca/vim-localrc"
 NeoBundle "thinca/vim-quickrun"
 NeoBundle "thinca/vim-qfreplace"
 " NeoBundle "scrooloose/nerdtree"
@@ -246,6 +247,8 @@ NeoBundle "altercation/vim-colors-solarized"
 " syntastic {{{
     let g:syntastic_enable_signs=1
     let g:syntastic_auto_loc_list=2
+    let g:syntastic_enable_perl_checker = 1
+    let g:syntastic_perl_checkers = ['perl', 'podchecker']
     let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'passive_filetypes': ['css'] }
 " }}}
