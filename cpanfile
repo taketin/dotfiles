@@ -1,1 +1,2 @@
-requires 'Carp::Reply'
+requires 'Carp::Reply';
+requires 'Vi::QuickFix';
