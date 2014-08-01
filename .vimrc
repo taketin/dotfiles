@@ -540,6 +540,7 @@ augroup END
 "-----------------------------------------------------
 "  HTML (and more template engine)
 "-----------------------------------------------------
+autocmd FileType html set noexpandtab
 au BufNewFile,BufRead *.html   set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.rhtml  set tabstop=4 expandtab shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.erb    set tabstop=4 expandtab shiftwidth=2 softtabstop=2
