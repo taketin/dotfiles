@@ -26,6 +26,7 @@ install colordiff
 install ctagscurl-ca-bundle
 install docker
 install figlet
+install fontforge
 install gd
 install gettext
 install gist
