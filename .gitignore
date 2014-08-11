@@ -23,11 +23,4 @@ tags
 .vimperator/info/default/local-marks
 .vimperator/info/default/macros
 ._*
-
-# Xcode
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/default.*
-!**.xcodeproj/default.*
-build/
-
+.vim/.netrwhist
