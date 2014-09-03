@@ -44,7 +44,6 @@ alias gdb="go build -gcflags \"-N -l\""
 # Peco
 alias s="_peco_mdfind"
 alias psp="ps ax | peco "
-alias p='search-document-by-peco'
 alias o='git ls-files | peco | xargs open'
 alias v='git ls-files | peco | xargs -o vi'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'

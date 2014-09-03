@@ -53,6 +53,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Go Setting
 export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/go/bin
 
 # import alias setting
 if [ -f $HOME/.zsh_aliases ]; then
@@ -310,6 +311,19 @@ if exists peco; then
     zle -N peco-select-history
     bindkey '^r' peco-select-history
 
+    if exists ghq; then
+        function peco-ghq () {
+            local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+            if [ -n "$selected_dir" ]; then
+                BUFFER="cd ${selected_dir}"
+                zle accept-line
+            fi
+            zle clear-screen
+        }
+        zle -N peco-ghq
+        bindkey '^]' peco-ghq
+    fi
+
     if exists cdr; then
         function peco-cdr () {
             local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
@@ -346,6 +360,8 @@ if exists peco; then
             vi $SELECTED_FILE
         fi
     }
+    zle -N search-document-by-peco
+    bindkey '^[' search-document-by-peco
 fi
 
 # setting for percol
