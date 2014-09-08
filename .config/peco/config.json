@@ -1,0 +1,10 @@
+{
+  "Keymap": {
+    "M-v": "peco.ScrollPageUp",
+    "C-v": "peco.ScrollPageDown"
+  },
+  "Style": {
+    "Selected": ["underline", "on_green", "black"],
+    "Query": ["yellow", "underline"]
+  }
+}

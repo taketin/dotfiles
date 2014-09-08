@@ -86,3 +86,6 @@
     default = matching
 [mergetool]
     keepBackup = false
+[ghp]
+    root = ~/.ghq
+    root = ~/go/src
