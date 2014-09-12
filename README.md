@@ -1,1 +1,1 @@
-## My Dotfiles and Settings. 🍺
+## My Dotfiles and Settings. 🍻
