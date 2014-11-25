@@ -24,3 +24,4 @@ tags
 .vimperator/info/default/macros
 ._*
 .vim/.netrwhist
+.config/hub
