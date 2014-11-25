@@ -66,6 +66,7 @@ fi
 
 # setting to terminal_notifier for mac osx
 if [ -f $HOME/.zsh.d/zsh-notify/notify.plugin.zsh ]; then
+    autoload -Uz add-zsh-hook
     source ~/.zsh.d/zsh-notify/notify.plugin.zsh
     export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
     export NOTIFY_COMMAND_COMPLETE_TIMEOUT=30
