@@ -26,6 +26,8 @@
     guitool = meld
     # a/ b/ を消す
     noprefix = true
+[diff "json"]
+    textconv = "jq ."
 [http]
     sslVerify = false
 [alias]
