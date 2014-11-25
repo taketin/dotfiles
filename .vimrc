@@ -137,6 +137,7 @@ NeoBundle 'str2numchar.vim'
 NeoBundle "hail2u/vim-css3-syntax"
 " NeoBundle "css_color.vim"
 NeoBundle "cakebaker/scss-syntax.vim"
+NeoBundle "aklt/plantuml-syntax"
 
 " Markdown
 NeoBundle 'Markdown'
