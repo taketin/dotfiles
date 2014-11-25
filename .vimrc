@@ -94,7 +94,7 @@ NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplcache-rsense'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'Shougo/vimshell'
 NeoBundle "clones/vim-l9"
 NeoBundle "thinca/vim-localrc"
