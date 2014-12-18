@@ -37,6 +37,7 @@ alias s='git s'
 alias hi='history'
 alias tac='tail -r'
 alias ggdb=/usr/local/Cellar/gdb/7.7.1/bin/gdb
+alias xc-clear-cache='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
 
 # swift
 SDKROOT=$(xcrun --show-sdk-path -sdk macosx)
