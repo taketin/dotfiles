@@ -36,7 +36,7 @@ alias g='git'
 alias s='git s'
 alias hi='history'
 alias tac='tail -r'
-alias ggdb=/usr/local/Cellar/gdb/7.7.1/bin/gdb
+alias ggdb='/usr/local/Cellar/gdb/7.7.1/bin/gdb'
 alias xc-clear-cache='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
 
 # swift
