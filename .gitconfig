@@ -40,6 +40,7 @@
     wip = commit --allow-empty -m
     p = !git push origin `git rev-parse --abbrev-ref HEAD`
     pl = !git pull && git submodule update --init
+    plf = !git fetch && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
     d = diff
     da = diff --staged
     dc = difftool --cached
