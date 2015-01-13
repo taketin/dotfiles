@@ -38,7 +38,7 @@
     ci = commit -m
     gr = grep --line-number --show-function --color --heading --break
     wip = commit --allow-empty -m
-    p = !git push origin `git rev-parse --abbrev-ref HEAD`
+    p = push
     pl = !git pull && git submodule update --init
     plf = !git fetch && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
     d = diff
@@ -86,7 +86,7 @@
     # Mac で濁点入り日本語を扱える
     precomposeunicode = true
 [push]
-    default = matching
+    default = current
 [mergetool]
     keepBackup = false
 [ghq]
