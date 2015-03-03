@@ -54,6 +54,7 @@ alias o='git ls-files | peco | xargs open'
 alias v='git ls-files | peco | xargs -o vi'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 alias pk="peco-pkill"
+alias gh='gh-open $(ghq list -p | peco)'
 
 # Python
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
