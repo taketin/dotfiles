@@ -61,6 +61,7 @@
     mamend = commit --amend -m
     cd = checkout develop
     cm = checkout master
+    fe = fetch --prune
     ff = flow feature
     ffs = flow feature start
     fff = flow feature finish
