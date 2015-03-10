@@ -363,6 +363,17 @@ if exists peco; then
     }
     zle -N search-document-by-peco
     bindkey '^[' search-document-by-peco
+
+    function peco-cdr () {
+        local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+        if [ -n "$selected_dir" ]; then
+            BUFFER="cd ${selected_dir}"
+            zle accept-line
+        fi
+        zle clear-screen
+    }
+    zle -N peco-cdr
+    bindkey '^xr' peco-cdr
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
