@@ -529,6 +529,8 @@ set clipboard=unnamed,autoselect
 "crontab 対策
 set backupskip=/tmp/*,/private/tmp/*
 
+inoremap <silent> jj <ESC>
+
 "コメントが連続で挿入されるのを停止 
 autocmd FileType * setlocal formatoptions-=ro 
 
