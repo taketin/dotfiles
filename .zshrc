@@ -365,31 +365,5 @@ if exists peco; then
     bindkey '^[' search-document-by-peco
 fi
 
-# setting for percol
-
-if exists percol; then
-    function percol_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
-
-    # zle -N percol_select_history
-    # bindkey '^R' percol_select_history
-
-    function search-document-by-percol(){
-        DOCUMENT_DIR="\
-            $HOME/work/
-        "
-        SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
-            ag -w "\.(h|m|md|plist|swift|rb|pl|pm|js|coffee|scss|tt)$" | percol --match-method regex)
-        if [ $? -eq 0 ]; then
-            vi $SELECTED_FILE
-        fi
-    }
-fi
-
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/FKST14573/.gvm/bin/gvm-init.sh" ]] && source "/Users/FKST14573/.gvm/bin/gvm-init.sh"
