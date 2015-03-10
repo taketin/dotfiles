@@ -390,3 +390,6 @@ if exists percol; then
         fi
     }
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/FKST14573/.gvm/bin/gvm-init.sh" ]] && source "/Users/FKST14573/.gvm/bin/gvm-init.sh"
