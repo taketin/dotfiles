@@ -3,3 +3,6 @@
 "  _    _>  <    | |/ /  / /  / / / / / /  / /     / /__
 " (_)  /_/|_|    |___/  /_/  /_/ /_/ /_/  /_/      \___/
 "
+
+vnoremap <enter> :xcmenucmd Set Print Breakpoint<CR>
+noremap \<enter> :xcmenucmd Set Backtrace Breakpoint<CR>
