@@ -138,6 +138,7 @@ NeoBundle "hail2u/vim-css3-syntax"
 " NeoBundle "css_color.vim"
 NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundle "aklt/plantuml-syntax"
+NeoBundle 'airblade/vim-gitgutter'
 
 " Markdown
 NeoBundle 'Markdown'
@@ -435,6 +436,11 @@ NeoBundle "altercation/vim-colors-solarized"
 
 " open-github-files {{{
     map <Leader>ogf :OpenGithubFile<CR>
+" }}}
+
+" vim-gitgutter {{{
+    nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
+    nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 " }}}
 
 "-----------------------------------------------------
