@@ -19,6 +19,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>429217B6-4635-4C0D-90CF-77B97444EB43</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ee</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Oxford 英英辞典</string>
+			<key>url</key>
+			<string>http://www.oxfordlearnersdictionaries.com/definition/english/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>5556895A-5628-4B65-9550-C33CDBC327AB</key>
 		<dict>
 			<key>enabled</key>
