@@ -202,6 +202,12 @@ NeoBundle "altercation/vim-colors-solarized"
 
 " quickrun {{{
     let g:quickrun_config = {}
+    let g:quickrun_config = {
+    \   "_" : {
+    \       "outputter/buffer/split" : ":botright",
+    \       "outputter/buffer/close_on_empty" : 1
+    \   },
+    \}
     let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
     " see http://vim-users.jp/2011/09/hack230/
     let g:quickrun_config['markdown'] = {'outputter': 'browser'}
@@ -210,6 +216,8 @@ NeoBundle "altercation/vim-colors-solarized"
                 \ 'cmdopt': '-target x86_64-apple-macosx10.9 -sdk /Applications/Xcode-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk',
                 \ 'exec': '%c %o %s',
                 \ }
+    nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+    nnoremap \r :QuickRun<CR>
 " }}}
 
 " taglist {{{
