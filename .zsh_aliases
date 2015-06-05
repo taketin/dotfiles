@@ -85,6 +85,10 @@ alias uc-re='pkill unicorn; uc-up'
 # rails
 alias rr='routes_cache | less'
 
+# cocoapods
+alias pi='pod install'
+alias pu='pod update'
+
 # nginx
 alias nx-start='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
 alias nx-stop='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
