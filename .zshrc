@@ -55,6 +55,9 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
 
+# Haskell Setting
+export PATH=$PATH:$HOME/Library/Haskell/bin
+
 # node.js settings
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 

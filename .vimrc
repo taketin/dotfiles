@@ -164,6 +164,12 @@ NeoBundle 'kchmck/vim-coffee-script'
 " Golang
 NeoBundle 'fatih/vim-go'
 
+" Haskell
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'eagletmt/ghcmod-vim'
+
 " Slim
 NeoBundle 'slim-template/vim-slim'
 
