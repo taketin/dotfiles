@@ -139,6 +139,8 @@ NeoBundle "hail2u/vim-css3-syntax"
 NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundle "aklt/plantuml-syntax"
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 
 " Markdown
 NeoBundle 'Markdown'
@@ -200,6 +202,12 @@ NeoBundle "altercation/vim-colors-solarized"
     " ESCキーを2回押すと終了
     au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
     au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" }}}
+
+" incsearch {{{
+    map z/ <Plug>(incsearch-fuzzy-/)
+    map z? <Plug>(incsearch-fuzzy-?)
+    map zg/ <Plug>(incsearch-fuzzy-stay)
 " }}}
 
 " endwise {{{
