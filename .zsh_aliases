@@ -100,3 +100,6 @@ alias hd='hexo clean && hexo deploy -g'
 # etc
 alias color16='curl -s -L https://gist.githubusercontent.com/soramugi/7968403/raw/cc2b61cd9479209cdf687ab3f23df6b18b8fd1a0/file0.txt | sh'
 alias color256='curl -s -L https://gist.githubusercontent.com/soramugi/7968451/raw/d8bdc8d940537f233e4c5202148709b1f15168f9/file0.txt | sh'
+
+# Haskell
+alias h=ghci
