@@ -61,6 +61,9 @@ export PATH=$PATH:$HOME/Library/Haskell/bin
 # node.js settings
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
+# Xcode settings
+export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
+
 # import alias setting
 if [ -f $HOME/.zsh_aliases ]; then
     . $HOME/.zsh_aliases
