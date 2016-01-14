@@ -383,6 +383,18 @@ if exists peco; then
     }
     zle -N peco-cdr
     bindkey '^xr' peco-cdr
+
+	function peco-github-prs () {
+		local pr=$(hub issue 2> /dev/null | grep 'pull' | peco --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
+		if [ -n "$pr" ]; then
+			BUFFER="open ${pr}"
+			zle accept-line
+		fi
+		zle clear-screen
+	}
+	zle -N peco-github-prs
+	bindkey '^P' peco-github-prs
+
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
