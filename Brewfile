@@ -37,7 +37,7 @@ install imagemagick
 install jpeg
 install jq
 install lv
-install nkf
+nstall nkf
 install node
 install openssl
 install peco
@@ -49,7 +49,6 @@ install tig
 install tmux
 install tree
 install vim --devel --with-ruby --with-lua
-install weechat --with-ruby --with-python --with-perl
 install wget
 install z
 install zsh
@@ -67,14 +66,12 @@ cask install dash
 cask install dropbox
 cask install evernote
 cask install filezilla
-cask install firefox
 cask install google-chrome
 cask install google-drive
 cask install google-japanese-ime
 cask install growlnotify
 cask install gyazo
 cask install keepassx
-cask install keyremap4macbook
 cask install kindle
 cask install kobito
 cask install macvim
@@ -82,19 +79,14 @@ cask install menupop
 cask install mutecon
 cask install onepassword
 cask install onyx
-cask install openoffice
-cask install whatsapp-pocket
-cask install reeder
 cask install sequel-pro
 cask install skitch
 cask install skype
 cask install soundcloud
 cask install sourcetree
-cask install trailer
 cask install truecrypt
 cask install vagrant
 cask install virtualbox
-cask install xtrafinder
 cask install iterm2
 cask install yorufukurou
 

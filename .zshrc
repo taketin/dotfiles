@@ -51,6 +51,9 @@ export EDITOR='vim'
 # plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# Git setting
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
 # Go Setting
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
@@ -63,6 +66,9 @@ export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 # Xcode settings
 export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
+
+# Homebrew cask settings
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # import alias setting
 if [ -f $HOME/.zsh_aliases ]; then
