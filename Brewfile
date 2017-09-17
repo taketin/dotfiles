@@ -1,102 +1,71 @@
-# Make sure using latest Homebrew
-update
-
-# Update already-installed formula
-# upgrade
-
-# Add Repository
-tap homebrew/versions || true
-tap homebrew/binary || true
-tap peco/peco
-tap taketin/homebrew-cask || true
-# tap phinze/homebrew-cask || true
+cask_args appdir: "/Applications"
+tap "caskroom/cask"
+tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 
 # Packages
-install ack
-install autoconf
-install automake
-install boot2docker
-install brew-cask
-install bsdmake
-install cgdb
-install chromedriver
-install ctags
-install cmake
-install colordiff
-install ctagscurl-ca-bundle
-install docker
-install figlet
-install fontforge
-install gd
-install gettext
-install gist
-install git
-install go
-install hub
-install imagemagick
-install jpeg
-install jq
-install lv
-install nkf
-install node
-install openssl
-install peco
-install rbenv
-install reattach-to-user-namespace
-install ruby-build
-install the_silver_searcher
-install tig
-install tmux
-install tree
-install vim --devel --with-ruby --with-lua
-install weechat --with-ruby --with-python --with-perl
-install wget
-install z
-install zsh
-# install meld # do cask install xquartz ahead
+brew "ack"
+brew "autoconf"
+brew "automake"
+brew "boot2docker"
+brew "bsdmake"
+brew "cgdb"
+brew "chromedriver"
+brew "ctags"
+brew "cmake"
+brew "colordiff"
+brew "docker"
+brew "figlet"
+brew "fontforge"
+brew "gd"
+brew "gettext"
+brew "gist"
+brew "git"
+brew "go"
+brew "hub"
+brew "imagemagick"
+brew "jpeg"
+brew "jq"
+brew "lv"
+brew "nkf"
+brew "node"
+brew "openssl"
+brew "peco"
+brew "rbenv"
+brew "reattach-to-user-namespace"
+brew "ruby-build"
+brew "the_silver_searcher"
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "vim", args: ["with-ruby", "with-lua"]
+brew "wget"
+brew "z"
+brew "zsh"
 
 # .dmg
-cask install xquartz # required reboot to xquartz enable
-cask install adobe-reader
-cask install alfred
-cask install appcleaner
-cask install bettertouchtool
-cask install clipmenu
-cask install coteditor
-cask install dash
-cask install dropbox
-cask install evernote
-cask install filezilla
-cask install firefox
-cask install google-chrome
-cask install google-drive
-cask install google-japanese-ime
-cask install growlnotify
-cask install gyazo
-cask install keepassx
-cask install keyremap4macbook
-cask install kindle
-cask install kobito
-cask install macvim
-cask install menupop
-cask install mutecon
-cask install onepassword
-cask install onyx
-cask install openoffice
-cask install whatsapp-pocket
-cask install reeder
-cask install sequel-pro
-cask install skitch
-cask install skype
-cask install soundcloud
-cask install sourcetree
-cask install trailer
-cask install truecrypt
-cask install vagrant
-cask install virtualbox
-cask install xtrafinder
-cask install iterm2
-cask install yorufukurou
-
-# Remove outdated versions
-cleanup
+cask "xquartz" # required reboot to xquartz enable
+cask "alfred"
+cask "appcleaner"
+cask "bettertouchtool"
+cask "clipy"
+cask "coteditor"
+cask "dash"
+cask "dropbox"
+cask "evernote"
+cask "filezilla"
+cask "firefox"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "gyazo"
+cask "keepassx"
+cask "kindle"
+cask "macvim"
+cask "openoffice"
+cask "sequel-pro"
+cask "skitch"
+cask "skype"
+cask "sourcetree"
+cask "trailer"
+cask "vagrant"
+cask "virtualbox"
+cask "iterm2"
