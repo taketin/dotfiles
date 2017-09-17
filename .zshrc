@@ -51,6 +51,9 @@ export EDITOR='vim'
 # plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# Git Setting
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
 # Go Setting
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
