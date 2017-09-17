@@ -79,104 +79,102 @@ augroup END
 
 
 "-----------------------------------------------------
-"  NeoBundle
+"  vim-plug
 "-----------------------------------------------------
-filetype off
+call plug#begin('~/.vim/plugged')
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle/'))
-endif
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neocomplcache-rsense'
+Plug 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
+Plug 'Shougo/vimshell'
+Plug 'clones/vim-l9'
+Plug 'thinca/vim-localrc'
+Plug 'thinca/vim-quickrun'
+Plug 'thinca/vim-qfreplace'
+" Plug 'scrooloose/nerdtree'
+Plug 'kana/vim-fakeclip'
+Plug 'fuenor/qfixhowm'
+Plug 'fuenor/qfixgrep'
+" Plug 'sjl/gundo.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/syntastic'
+Plug 'Lokaltog/vim-powerline'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'glidenote/memolist.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
+Plug 'rking/ag.vim'
+" Plug 'scottstvnsn/autoclose.vim'
+" Plug 'kakkyz81/evervim'
+" Plug 'taglist.vim'
+Plug 'vim-scripts/ref.vim'
+Plug 'lepture/vim-jinja'
+Plug 'taichouchou2/vim-endwise.git'
+" Plug 'Source-Explorer-srcexpl.vim'
+Plug 'osyo-manga/vim-over'
+" Plug 'vim-scripts/YankRing.vim'
+Plug 'LeafCage/yankround.vim'
+Plug 'tpope/vim-fugitive'
 
-NeoBundle "Shougo/neobundle"
-NeoBundle "Shougo/unite.vim"
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/neocomplcache-rsense'
-NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
-NeoBundle 'Shougo/vimshell'
-NeoBundle "clones/vim-l9"
-NeoBundle "thinca/vim-localrc"
-NeoBundle "thinca/vim-quickrun"
-NeoBundle "thinca/vim-qfreplace"
-" NeoBundle "scrooloose/nerdtree"
-NeoBundle "kana/vim-fakeclip"
-NeoBundle "fuenor/qfixhowm"
-NeoBundle "fuenor/qfixgrep"
-" NeoBundle "sjl/gundo.vim"
-NeoBundle "tomtom/tcomment_vim"
-NeoBundle "scrooloose/syntastic"
-NeoBundle "Lokaltog/vim-powerline"
-NeoBundle "mattn/gist-vim"
-NeoBundle "mattn/webapi-vim"
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/open-browser-github.vim'
-NeoBundle 'rking/ag.vim'
-" NeoBundle "scottstvnsn/autoclose.vim"
-" NeoBundle "kakkyz81/evervim"
-" NeoBundle "taglist.vim"
-NeoBundle "ref.vim"
-NeoBundle "lepture/vim-jinja"
-NeoBundle 'taichouchou2/vim-endwise.git'
-" NeoBundle "Source-Explorer-srcexpl.vim"
-NeoBundle 'osyo-manga/vim-over'
-" NeoBundle "vim-scripts/YankRing.vim"
-NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'tpope/vim-fugitive'
-
-NeoBundle "mattn/emmet-vim"
-NeoBundle "othree/html5.vim"
-NeoBundle "tmhedberg/matchit"
-" NeoBundle "ruby-matchit"
-NeoBundle "surround.vim"
-NeoBundle 'str2numchar.vim'
-" NeoBundle "vim-scripts/css.vim"
-NeoBundle "hail2u/vim-css3-syntax"
-" NeoBundle "css_color.vim"
-NeoBundle "cakebaker/scss-syntax.vim"
-NeoBundle "aklt/plantuml-syntax"
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
+Plug 'tmhedberg/matchit'
+" Plug 'ruby-matchit'
+Plug 'vim-scripts/surround.vim'
+Plug 'vim-scripts/str2numchar.vim'
+" Plug 'vim-scripts/css.vim'
+Plug 'hail2u/vim-css3-syntax'
+" Plug 'css_color.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'airblade/vim-gitgutter'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 
 " Markdown
-NeoBundle 'Markdown'
-NeoBundle 'suan/vim-instant-markdown'
+Plug 'vim-scripts/Markdown'
+Plug 'suan/vim-instant-markdown'
 
 " Swift
-NeoBundle 'toyamarinyon/vim-swift'
+Plug 'toyamarinyon/vim-swift'
 
 " Ruby
-" NeoBundle "tpope/vim-rails"
+" Plug 'tpope/vim-rails'
 
 " Python
-" NeoBundle "lambdalisue/vim-python-virtualenv"
-" NeoBundle "mitechie/pyflakes-pathogen"
+" Plug 'lambdalisue/vim-python-virtualenv'
+" Plug 'mitechie/pyflakes-pathogen'
 
 " js
-NeoBundle 'JavaScript-syntax'
-NeoBundle 'itspriddle/vim-javascript-indent'
+Plug 'vim-scripts/JavaScript-syntax'
+Plug 'itspriddle/vim-javascript-indent'
 
 " CoffeeScript
-NeoBundle 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 
 " Golang
-NeoBundle 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " Haskell
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'eagletmt/ghcmod-vim'
+Plug 'kana/vim-filetype-haskell'
+Plug 'dag/vim2hs'
+Plug 'ujihisa/neco-ghc'
+Plug 'eagletmt/ghcmod-vim'
 
 " Slim
-NeoBundle 'slim-template/vim-slim'
+Plug 'slim-template/vim-slim'
 
 " Color Scheme
-NeoBundle "altercation/vim-colors-solarized"
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
+"/------------------------------ end of vim-plug
 
 " Unite {{{
     " 入力モードで開始
@@ -435,7 +433,7 @@ NeoBundle "altercation/vim-colors-solarized"
     set runtimepath^=~/.vim/ctrlp.vim
     let g:ctrlp_map = '<C-p><C-o>'
     let g:ctrlp_cmd = 'CtrlP'
-    helptags ~/.vim/bundle/ctrlp.vim/doc
+    helptags ~/.vim/plugged/ctrlp.vim/doc
 " }}}
 
 "" over.vim {{{
