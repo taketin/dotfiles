@@ -19,6 +19,7 @@ tags
 *.svn/
 .zsh/*cdd_pwd_list*
 .zsh/local.zshenv
+.tmuxinator/office.yml
 .vim/plugged/*
 .vim/autoload/*
 .vimperator/info/default/local-marks
