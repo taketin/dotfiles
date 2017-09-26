@@ -88,6 +88,7 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
+NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle "Shougo/neobundle"
 NeoBundle "Shougo/unite.vim"
 NeoBundle 'Shougo/neocomplete'
@@ -107,7 +108,6 @@ NeoBundle "fuenor/qfixgrep"
 " NeoBundle "sjl/gundo.vim"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "scrooloose/syntastic"
-NeoBundle "Lokaltog/vim-powerline"
 NeoBundle "mattn/gist-vim"
 NeoBundle "mattn/webapi-vim"
 NeoBundle 'glidenote/memolist.vim'
@@ -270,7 +270,10 @@ NeoBundle "altercation/vim-colors-solarized"
 " }}}
 
 " Powerline {{{
-    let g:Powerline_symbols = 'fancy'
+    set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+    set laststatus=2
+    set showtabline=2
+    set noshowmode
 " }}}
 
 " syntastic {{{

@@ -46,6 +46,16 @@ export ZSH_THEME="robbyrussell"
 #
 export EDITOR='vim'
 
+## for OpenSSL
+#
+export PATH=/usr/local/opt/openssl/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
+export CPATH=/usr/local/opt/openssl/include:$LD_LIBRARY_PATH
+
+## Powerline
+powerline-daemon -q
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git)
@@ -53,6 +63,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Git setting
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
+# Perl Setting
+# export PERL_CPANM_OPT="--local-lib=~/perl5"
+# export PATH=$HOME/perl5/bin:$PATH;
+# export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB;
 
 # Go Setting
 export GOPATH=$HOME/go
@@ -401,7 +416,23 @@ if exists peco; then
 	zle -N peco-github-prs
 	bindkey '^P' peco-github-prs
 
+	function peco-select-gitadd() {
+		local SELECTED_FILE_TO_ADD="$(git status --porcelain | \
+									  peco --query "$LBUFFER" | \
+									  awk -F ' ' '{print $NF}')"
+		if [ -n "$SELECTED_FILE_TO_ADD" ]; then
+		  BUFFER="git add $(echo "$SELECTED_FILE_TO_ADD" | tr '\n' ' ')"
+		  CURSOR=$#BUFFER
+		fi
+		zle accept-line
+		# zle clear-screen
+	}
+	zle -N peco-select-gitadd
+	bindkey "^g^a" peco-select-gitadd
+
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/FKST14573/.gvm/bin/gvm-init.sh" ]] && source "/Users/FKST14573/.gvm/bin/gvm-init.sh"
+
+[[ -s "/Users/ST14573/.gvm/scripts/gvm" ]] && source "/Users/ST14573/.gvm/scripts/gvm"
