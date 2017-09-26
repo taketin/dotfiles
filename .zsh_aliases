@@ -107,4 +107,4 @@ alias color256='curl -s -L https://gist.githubusercontent.com/soramugi/7968451/r
 # Haskell
 alias h=ghci
 
-alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash'
+alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash'
