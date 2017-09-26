@@ -1,3 +1,5 @@
+setopt no_global_rcs
+
 # anyenv settings
 if [ -d ${HOME}/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
@@ -7,4 +9,3 @@ if [ -d ${HOME}/.anyenv ] ; then
         export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
     done
 fi
-
