@@ -135,6 +135,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " Markdown
 Plug 'vim-scripts/Markdown'
