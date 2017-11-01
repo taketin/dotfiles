@@ -46,12 +46,6 @@ export ZSH_THEME="robbyrussell"
 #
 export EDITOR='vim'
 
-## for OpenSSL
-#
-export PATH=/usr/local/opt/openssl/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
-export CPATH=/usr/local/opt/openssl/include:$LD_LIBRARY_PATH
-
 ## Powerline
 powerline-daemon -q
 . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
