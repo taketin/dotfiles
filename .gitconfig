@@ -68,6 +68,7 @@
     frs = flow release start
     frf = flow release finish
     rank = shortlog -s -n --no-merges
+    wt = worktree
 
     # submodule 更新
     subupdate = submodule foreach "git checkout master; git pull"
