@@ -362,6 +362,18 @@ if exists peco; then
         bindkey '^z' peco-cdr
     fi
 
+    if exists git; then
+        function peco-git-worktree () {
+            local selected_dir=$(git worktree list | awk '{ print $1}' | peco --query "$LBUFFER")
+            if [ -n "$selected_dir" ]; then
+                BUFFER="cd ${selected_dir}"
+                zle accept-line
+            fi
+        }
+        zle -N peco-git-worktree
+        bindkey '^w' peco-git-worktree
+    fi
+
     function peco-pkill() {
       for pid in `ps aux | peco | awk '{ print $2 }'`
       do
