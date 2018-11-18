@@ -371,7 +371,7 @@ if exists peco; then
             fi
         }
         zle -N peco-git-worktree
-        bindkey '^w' peco-git-worktree
+        bindkey '^wt' peco-git-worktree
     fi
 
     function peco-pkill() {
