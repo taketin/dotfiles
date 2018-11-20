@@ -24,6 +24,7 @@
 [diff]
     tool = meld
     guitool = meld
+    indentHeuristic = true
     # a/ b/ を消す
     noprefix = true
 [diff "json"]
