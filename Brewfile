@@ -44,6 +44,7 @@ brew "zsh"
 
 # .dmg
 cask "xquartz" # required reboot to xquartz enable
+cask "meld"
 cask "alfred"
 cask "appcleaner"
 cask "bettertouchtool"
