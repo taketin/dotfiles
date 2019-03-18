@@ -24,6 +24,7 @@
 [diff]
     tool = meld
     guitool = meld
+    indentHeuristic = true
     # a/ b/ を消す
     noprefix = true
 [diff "json"]
@@ -94,7 +95,7 @@
 [mergetool]
     keepBackup = false
 [ghq]
-    root = ~/go/src
+    root = ~/.ghq/
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

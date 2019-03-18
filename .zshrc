@@ -24,7 +24,7 @@ sudo_path=({/usr/local,/usr,}/sbin(N-/))
 
 ## Path
 #
-path=(~/bin(N-/) /usr/local/bin(N-/) ${path})
+path=(~/.bin(N-/) /usr/local/bin(N-/) ${path})
 
 ## Environment variable configuration
 ##
@@ -47,8 +47,9 @@ export ZSH_THEME="robbyrussell"
 export EDITOR='vim'
 
 ## Powerline
+export PATH=$PATH:$HOME/Library/Python/2.7/bin
 powerline-daemon -q
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -230,6 +231,9 @@ setopt share_history        # share command history data
 #
 autoload -U compinit
 compinit
+
+source ~/.bin/anyenv.zsh
+source ~/.bin/tmuxinator.zsh
 
 # cdd
 #

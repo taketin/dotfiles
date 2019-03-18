@@ -1,20 +1,25 @@
 # ~/.tmuxinator/basic.yml
 
 name: basic
-root: ~/projects
-pre:
- - cd ~/dotfiles
+root: ~/
+on_project_start:
+ - ghq look taketin/dotfiles
  - git pull origin master
- - cd ~/work
 
 windows:
   - main:
       layout: main-vertical
       panes:
-        - #empty
-        - #empty
-        - #empty
+        - cd ~/line-ios
+        - cd ~/line-ios
+        - cd ~/line-ios
   - sub:
+      layout: main-vertical
+      panes:
+        - #empty
+        - #empty
+        - #empty
+  - sub2:
       layout: main-vertical
       panes:
         - #empty

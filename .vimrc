@@ -127,6 +127,8 @@ Plug 'tmhedberg/matchit'
 " Plug 'ruby-matchit'
 Plug 'vim-scripts/surround.vim'
 Plug 'vim-scripts/str2numchar.vim'
+Plug 'zerowidth/vim-copy-as-rtf'
+
 " Plug 'vim-scripts/css.vim'
 Plug 'hail2u/vim-css3-syntax'
 " Plug 'css_color.vim'
