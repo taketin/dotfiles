@@ -34,6 +34,7 @@
     a  = add
     aa = reset HEAD
     back = checkout HEAD --
+    cb = ! git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'
     co = checkout
     ci = commit -m
     gr = grep --line-number --show-function --color --heading --break
@@ -67,6 +68,7 @@
     fff = flow feature finish
     frs = flow release start
     frf = flow release finish
+    pull-f = !git fetch && git reset --hard origin/$(git cb)
     rank = shortlog -s -n --no-merges
     wt = worktree
 
