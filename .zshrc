@@ -8,10 +8,6 @@
 #                                                        #
 ##########################################################
 
-## Path to your oh-my-zsh configuration.
-#
-ZSH=$HOME/.oh-my-zsh
-
 ## Exclude for duplicate path
 #
 typeset -U path cdpath fpath manpath
@@ -32,37 +28,38 @@ path=(~/.bin(N-/) /usr/local/bin(N-/) ${path})
 ##
 export LANG=ja_JP.UTF-8
 
-## zsh-completions
-#
-
-fpath=(~/.zsh-completions $fpath)
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-
-## Pronpt Theme
-#
-export ZSH_THEME="robbyrussell"
-
 ## Editor
 #
 export EDITOR='vim'
 
-## Powerline
-export PATH=$PATH:$HOME/Library/Python/2.7/bin
-powerline-daemon -q
-. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+## Zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git xcode)
-source $ZSH/oh-my-zsh.sh
+# theme (https://github.com/sindresorhus/pure#zplug)
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
+
+# syntax highlight (https://github.com/zsh-users/zsh-syntax-highlighting)
+zplug "zsh-users/zsh-syntax-highlighting"
+# history
+zplug "zsh-users/zsh-history-substring-search"
+# type completion
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
 
 # Git setting
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
-
-# Perl Setting
-# export PERL_CPANM_OPT="--local-lib=~/perl5"
-# export PATH=$HOME/perl5/bin:$PATH;
-# export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB;
 
 # Go Setting
 export GOPATH=$HOME/go
@@ -73,9 +70,6 @@ export PATH=$PATH:$HOME/Library/Haskell/bin
 
 # node.js settings
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-
-# Xcode settings
-export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
 
 # Homebrew cask settings
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -96,12 +90,6 @@ if [ -f $HOME/.zsh.d/zsh-notify/notify.plugin.zsh ]; then
     export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
     export NOTIFY_COMMAND_COMPLETE_TIMEOUT=30
 fi
-
-# Source Prezto.
-# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-# fi
-
 
 # # git stash count
 # function git_prompt_stash_count {
@@ -446,3 +434,5 @@ fi
 [[ -s "/Users/FKST14573/.gvm/bin/gvm-init.sh" ]] && source "/Users/FKST14573/.gvm/bin/gvm-init.sh"
 
 [[ -s "/Users/ST14573/.gvm/scripts/gvm" ]] && source "/Users/ST14573/.gvm/scripts/gvm"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
