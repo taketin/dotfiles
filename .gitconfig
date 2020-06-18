@@ -95,7 +95,7 @@
 [mergetool]
     keepBackup = false
 [ghq]
-    root = ~/.ghq/
+    root = ~/ghq/
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
