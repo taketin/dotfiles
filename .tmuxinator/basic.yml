@@ -3,8 +3,6 @@
 name: basic
 root: ~/
 on_project_start:
- - ghq look taketin/dotfiles
- - git pull origin master
 
 windows:
   - main:

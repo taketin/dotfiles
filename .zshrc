@@ -436,3 +436,5 @@ fi
 [[ -s "/Users/ST14573/.gvm/scripts/gvm" ]] && source "/Users/ST14573/.gvm/scripts/gvm"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init -)"

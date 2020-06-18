@@ -45,6 +45,7 @@ alias pp='open ~/Library/MobileDevice/Provisioning\ Profiles/'
 alias cf='ls -F . | grep -v / | wc -l'
 alias xc-uuid='defaults read /Applications/Xcode.app/Contents/Info.plist DVTPlugInCompatibilityUUID'
 alias xc-uuid-add='find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/ -name Info.plist | xargs -IFILE defaults write FILE DVTPlugInCompatibilityUUIDs -array-add `xc-uuid`'
+alias record-simulator='xcrun simctl io booted recordVideo'
 
 # swift
 SDKROOT=$(xcrun --show-sdk-path -sdk macosx)
