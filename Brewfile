@@ -43,6 +43,7 @@ brew "vim", args: ["with-ruby", "with-lua"]
 brew "wget"
 brew "z"
 brew "zsh"
+brew "zplug"
 
 # .dmg
 cask "xquartz" # required reboot to xquartz enable
