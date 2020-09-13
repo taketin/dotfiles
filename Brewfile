@@ -73,3 +73,4 @@ cask "virtualbox"
 cask "iterm2"
 
 mas "LINE", id: 539883307
+mas "FuzzyTime", id: 950297058
