@@ -8,6 +8,10 @@
 #                                                        #
 ##########################################################
 
+## Anyenv
+#
+eval "$(anyenv init -)"
+
 ## Exclude for duplicate path
 #
 typeset -U path cdpath fpath manpath
@@ -33,7 +37,7 @@ export LANG=ja_JP.UTF-8
 export EDITOR='vim'
 
 ## Zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # theme (https://github.com/sindresorhus/pure#zplug)
@@ -436,5 +440,8 @@ fi
 [[ -s "/Users/ST14573/.gvm/scripts/gvm" ]] && source "/Users/ST14573/.gvm/scripts/gvm"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init -)"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
